@@ -1,0 +1,9 @@
+#!/bin/bash
+
+if [ -z "$(pgrep nm-applet)" ] ; then
+  nm-applet --sm-disable &
+fi
+
+if [ -z "$(pgrep owncloud)" ] ; then
+  owncloud &
+fi
