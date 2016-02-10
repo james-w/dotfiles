@@ -56,6 +56,7 @@ values."
      spell-checking
      sql
      syntax-checking
+     theming
      version-control
      yaml
      vimscript
@@ -269,7 +270,34 @@ values."
 It is called immediately after `dotspacemacs/init'.  You are free to put almost
 any user code here.  The exception is org related code, which should be placed
 in `dotspacemacs/user-config'."
-  )
+
+  (setq-default
+
+   ;; Use dired when projectile switching
+   projectile-switch-project-action 'projectile-dired
+
+  ;; Use ranger instead of dired
+  ranger-override-dired t
+
+  ;; Try enabling some things for completion.
+  auto-completion-enable-help-tooltip 1
+  auto-completion-enable-snippets-in-popup 1
+  auto-completion-enable-sort-by-usage 1
+
+  theming-modifications
+   '((solarized-dark
+      ;; Font locking
+      (font-lock-comment-face :slant italic)
+      (font-lock-string-face :slant italic)
+      (font-lock-doc-face :slant italic)
+      (font-lock-keyword-face :slant italic :weight bold)
+      (font-lock-builtin-face :slant italic)
+      (font-lock-string-face :slant italic)
+      (font-lock-warning-face :underline nil)
+      (flycheck-warning :inherit spaceline-flycheck-warning :underline nil)
+      (flycheck-error :inherit spaceline-flycheck-error :underline nil)
+      ))
+  ))
 
 (defun projectile-compile ()
   "Call 'compile in the root dir of the current project."
@@ -334,12 +362,6 @@ layers configuration. You are free to put any user code."
   (add-hook 'comint-output-filter-functions
             'comint-watch-for-password-prompt)
 
-  ;; Use dired when projectile switching
-  (setq-default projectile-switch-project-action 'projectile-dired)
-
-  ;; Use ranger instead of dired
-  (setq-default ranger-override-dired t)
-
   ;; Add a binding to run a compilation in the root of the current project
   (spacemacs/set-leader-keys
     "cx" 'projectile-compile)
@@ -355,13 +377,9 @@ layers configuration. You are free to put any user code."
   ;; Switch virtualenv when switching perspective.
   (add-hook 'persp-activated-hook 'persp-venv-switch)
 
-  ;; Try enabling some things for completion.
-  (setq auto-completion-enable-help-tooltip 1
-        auto-completion-enable-snippets-in-popup 1
-        auto-completion-enable-sort-by-usage 1)
-
   ;; Allow test-case-name declarations without prompts
-  (put 'test-case-name 'safe-local-variable 'stringp))
+  (put 'test-case-name 'safe-local-variable 'stringp)
 
+  )
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
