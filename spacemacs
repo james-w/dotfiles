@@ -288,6 +288,7 @@ in `dotspacemacs/user-config'."
    '((solarized-dark
       ;; Font locking
       (font-lock-comment-face :slant italic)
+      (font-lock-comment-delimiter-face :slant italic)
       (font-lock-string-face :slant italic)
       (font-lock-doc-face :slant italic)
       (font-lock-keyword-face :slant italic :weight bold)
