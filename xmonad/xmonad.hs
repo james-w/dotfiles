@@ -18,7 +18,7 @@ myKeyBindings =
    , ((mod4Mask, xK_c), sendMessage ToggleStruts)
    , ((mod4Mask .|. shiftMask, xK_l), spawn "gnome-screensaver-command -l")
     ] ++
-    [((m .|. mod1Mask, k), windows $ f i) -- Replace 'mod1Mask' with your mod key of choice.
+    [((m .|. mod4Mask, k), windows $ f i) -- Replace 'mod1Mask' with your mod key of choice.
          | (i, k) <- zip myWorkspaces [xK_1 .. xK_9]
          , (f, m) <- [(W.view, 0), (W.shift, shiftMask)]]
 
