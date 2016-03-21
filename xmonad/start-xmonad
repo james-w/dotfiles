@@ -17,4 +17,5 @@ gnome-screensaver &
 export $(gnome-keyring-daemon --start --components=gpg,pkcs11,secrets,ssh)
 gnome-power-manager &
 xkbcomp -I$HOME/.xkb ~/.xkb/keymap/jamesw :0
+redshift &
 exec xmonad
