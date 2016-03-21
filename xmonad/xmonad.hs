@@ -4,6 +4,7 @@ import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.UrgencyHook
 import XMonad.Layout.NoBorders
+import qualified XMonad.StackSet as W
 import XMonad.Util.Run(spawnPipe)
 import XMonad.Util.EZConfig(additionalKeys)
 import System.IO
@@ -16,7 +17,10 @@ myKeyBindings =
    , ((mod4Mask, xK_v), prevWS)
    , ((mod4Mask, xK_c), sendMessage ToggleStruts)
    , ((mod4Mask .|. shiftMask, xK_l), spawn "gnome-screensaver-command -l")
-    ]
+    ] ++
+    [((m .|. mod1Mask, k), windows $ f i) -- Replace 'mod1Mask' with your mod key of choice.
+         | (i, k) <- zip myWorkspaces [xK_1 .. xK_9]
+         , (f, m) <- [(W.view, 0), (W.shift, shiftMask)]]
 
 myWorkspaces :: [[Char]]
 myWorkspaces =
