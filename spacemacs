@@ -47,6 +47,7 @@ values."
      spell-checking
      sql
      syntax-checking
+     react
      rust
      semantic
      (shell :variables
