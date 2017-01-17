@@ -6,6 +6,7 @@
 [core]
 	editor = vim
 	excludesfile = ~/.gitignore
+	pager = less -FRXS
 # fsckObjects instructs git to check the object
 # integrity during these operations
 [receive]
