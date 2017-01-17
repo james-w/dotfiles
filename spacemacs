@@ -49,6 +49,7 @@ values."
      syntax-checking
      react
      rust
+     ruby
      semantic
      (shell :variables
             shell-default-height 30
