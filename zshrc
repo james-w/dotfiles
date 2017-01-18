@@ -85,7 +85,6 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias ls="ls -l"
 
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir rbenv vcs virtualenv rust_version background_jobs vi_mode)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status history time)
@@ -125,6 +124,7 @@ zle -N zle-keymap-select
 bindkey -M viins '\e.' insert-last-word
 # Make push-line work in vi insert mode
 bindkey -M viins '\eq' push-line
+bindkey -M viins '^d' delete-char
 
 # 10ms for key sequences
 export KEYTIMEOUT=1
