@@ -53,7 +53,7 @@ CASE_SENSITIVE="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(bgnotify cargo docker-compose docker git golang httpie kubectl rust vi-mode zsh-syntax-highlighting)
+plugins=(bgnotify cargo docker-compose docker git golang httpie kubectl rust vi-mode zsh-completions zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -128,3 +128,6 @@ bindkey -M viins '^d' delete-char
 
 # 10ms for key sequences
 export KEYTIMEOUT=1
+
+# Activate extra completions
+autoload -U compinit && compinit
