@@ -130,10 +130,12 @@ bindkey -M viins '\e.' insert-last-word
 bindkey -M viins '\eq' push-line
 # Make a hybrid mode by adding some emacs bindings back
 bindkey -M viins '^d' delete-char
+bindkey -M viins '\ed' delete-word
 bindkey -M viins '^b' backward-char
 bindkey -M viins '^f' vi-forward-char
 bindkey -M viins '\ef' vi-forward-word
 bindkey -M viins '\eb' vi-backward-word
+bindkey -M viins '^k' kill-line
 
 # 10ms for key sequences
 export KEYTIMEOUT=1
