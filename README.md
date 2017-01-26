@@ -13,3 +13,4 @@ It configures
   - tmux
   - vim
   - xmonad
+  - zsh
