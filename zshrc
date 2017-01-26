@@ -122,12 +122,18 @@ function zle-keymap-select {
 zle -N zle-line-init
 zle -N zle-line-finish
 zle -N zle-keymap-select
+### End https://github.com/bhilburn/powerlevel9k/issues/319
 
 # Make M-. work in vi insert mode
 bindkey -M viins '\e.' insert-last-word
 # Make push-line work in vi insert mode
 bindkey -M viins '\eq' push-line
+# Make a hybrid mode by adding some emacs bindings back
 bindkey -M viins '^d' delete-char
+bindkey -M viins '^b' backward-char
+bindkey -M viins '^f' vi-forward-char
+bindkey -M viins '\ef' vi-forward-word
+bindkey -M viins '\eb' vi-backward-word
 
 # 10ms for key sequences
 export KEYTIMEOUT=1
