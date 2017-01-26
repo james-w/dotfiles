@@ -24,7 +24,7 @@ values."
      ansible
      auto-completion
      better-defaults
-     dockerfile
+     docker
      emacs-lisp
      emoji
      floobits
