@@ -142,3 +142,7 @@ export KEYTIMEOUT=1
 
 # Activate extra completions
 autoload -U compinit && compinit
+
+# bare `cd` to a directory under here will work
+setopt auto_cd
+cdpath=($HOME/devel)
