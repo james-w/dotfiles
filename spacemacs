@@ -351,6 +351,10 @@ in `dotspacemacs/user-config'."
       (flycheck-warning :inherit spaceline-flycheck-warning :underline nil)
       (flycheck-error :inherit spaceline-flycheck-error :underline nil)
       ))
+
+   ;; 2 space indent for js code
+   js-indent-level 2
+   js2-basic-offset 2
   ))
 
 (defun projectile-compile ()
