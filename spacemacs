@@ -408,6 +408,14 @@ Uses compile so recompile etc. will work."
   (delete-persp-parameter 'venv)
   )
 
+(defun codefalling//reset-eslint-rc ()
+  (let ((rc-path (if (projectile-project-p)
+                     (concat (projectile-project-root) ".eslintrc"))))
+    (if (file-exists-p rc-path)
+        (progn
+          (message rc-path)
+          (setq flycheck-eslintrc rc-path)))))
+
 (defun dotspacemacs/user-config ()
   "Configuration function for user code.
 This function is called at the very end of Spacemacs initialization after
@@ -438,6 +446,9 @@ layers configuration. You are free to put any user code."
   ;; Allow test-case-name declarations without prompts
   (put 'test-case-name 'safe-local-variable 'stringp)
 
+  ;; Use the project .eslintrc
+  ;; Taken from http://stackoverflow.com/questions/37825191/how-can-i-use-local-eslintrc-in-spacemacs
+  (add-hook 'flycheck-mode-hook 'codefalling//reset-eslint-rc)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
