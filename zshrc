@@ -154,6 +154,8 @@ cdpath=($HOME/devel)
 
 # Don't share history between sessions
 setopt nosharehistory
+# Remove old entries if new one is a duplicate
+setopt HIST_IGNORE_ALL_DUPS
 
 export EDITOR=vim
 
