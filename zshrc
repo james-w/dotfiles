@@ -1,5 +1,5 @@
 # If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=$HOME/.cargo/bin:/usr/local/bin:$PATH
 
 export TERM="xterm-256color"
 
@@ -53,7 +53,7 @@ CASE_SENSITIVE="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(autojump bgnotify cargo docker-compose docker git golang httpie kubectl rust vi-mode zsh-autosuggestions zsh-completions zsh-syntax-highlighting)
+plugins=(autojump bgnotify cargo docker-compose docker fzf-zsh git golang httpie kubectl rust vi-mode zsh-autosuggestions zsh-completions zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -86,13 +86,14 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir rbenv vcs virtualenv rust_version background_jobs vi_mode)
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir custom_kubectl rbenv vcs virtualenv background_jobs vi_mode)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status history time)
 POWERLEVEL9K_VI_INSERT_MODE_STRING="\u270e"
 POWERLEVEL9K_VI_COMMAND_MODE_STRING="\u2605"
 POWERLEVEL9K_PROMPT_ON_NEWLINE=true
 POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX=""
 POWERLEVEL9K_MULTILINE_SECOND_PROMPT_PREFIX="↳ "
+POWERLEVEL9K_CUSTOM_KUBECTL="kubectl config current-context"
 
 # https://github.com/bhilburn/powerlevel9k/issues/319
 function zle-line-init {
@@ -137,6 +138,10 @@ bindkey -M viins '\ef' vi-forward-word
 bindkey -M viins '\eb' vi-backward-word
 bindkey -M viins '^k' kill-line
 
+bindkey -M viins '^T' fzf-file-widget
+bindkey -M viins '\ec' fzf-cd-widget
+bindkey -M viins '^R' fzf-history-widget
+
 # 10ms for key sequences
 export KEYTIMEOUT=1
 
@@ -146,3 +151,10 @@ autoload -U compinit && compinit
 # bare `cd` to a directory under here will work
 setopt auto_cd
 cdpath=($HOME/devel)
+
+# Don't share history between sessions
+setopt nosharehistory
+
+export EDITOR=vim
+
+export FZF_DEFAULT_OPTS='--height 40% --reverse --border'
