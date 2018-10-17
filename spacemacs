@@ -46,7 +46,7 @@ values."
      html
      javascript
      markdown
-     ;; org
+     org
      (python :variables python-test-runner 'pytest)
      ranger
      rust
