@@ -25,3 +25,7 @@
 	clean-merged = "!sh -c 'git merged | grep -v \"*\" | xargs -n 1 -r git branch -d'"
 	clean-slate = "!sh -c 'git checkout master && git pull && git clean-merged && git branch && git stash list && git status'"
     ff = "!sh -c 'git merge --ff origin/$(git rev-parse --abbrev-ref HEAD)'"
+[github]
+	user = james-w
+[diff]
+	algorithm = patience
