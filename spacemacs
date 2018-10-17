@@ -355,6 +355,18 @@ in `dotspacemacs/user-config'."
    ;; 2 space indent for js code
    js-indent-level 2
    js2-basic-offset 2
+   web-mode-markup-indent-offset 2
+   web-mode-css-indent-offset 2
+   web-mode-code-indent-offset 2
+   web-mode-indent-style 2
+
+   ;; don't create lockfiles, messes with node-sass-chokidar
+   create-lockfiles nil
+
+   exec-path (append exec-path '("~/devel/dockerbin/" "~/devel/gopath/bin"))
+
+   ;; set a savehist length as it causes hangs when it gets long
+   history-length 100
   ))
 
 (defun projectile-compile ()
@@ -449,6 +461,9 @@ layers configuration. You are free to put any user code."
   ;; Use the project .eslintrc
   ;; Taken from http://stackoverflow.com/questions/37825191/how-can-i-use-local-eslintrc-in-spacemacs
   (add-hook 'flycheck-mode-hook 'codefalling//reset-eslint-rc)
+
+  (setenv "GOPATH" "/home/jw2328/devel/gopath/")
+  (setenv "GOROOT" "/usr/local/go/")
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
