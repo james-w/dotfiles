@@ -160,3 +160,7 @@ setopt HIST_IGNORE_ALL_DUPS
 export EDITOR=vim
 
 export FZF_DEFAULT_OPTS='--height 40% --reverse --border'
+
+function tardiff() {
+    diff -u <(tar -v -tf $1) <(tar -v -tf $2)
+}
