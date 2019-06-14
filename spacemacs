@@ -44,7 +44,8 @@ values."
      haskell
      helm
      html
-     javascript
+     (javascript :variables tern-command '("node" "~/devel/dockerbin/tern"))
+     jsonnet
      markdown
      org
      (python :variables python-test-runner 'pytest)
@@ -464,6 +465,9 @@ layers configuration. You are free to put any user code."
 
   (setenv "GOPATH" "/home/jw2328/devel/gopath/")
   (setenv "GOROOT" "/usr/local/go/")
+
+  ;; Don't turn on smartparens mode in programming
+  (remove-hook 'prog-mode-hook #'smartparens-mode #'show-smartparens-mode)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
