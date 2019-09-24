@@ -33,6 +33,7 @@ main = do
     xmonad $ withUrgencyHook NoUrgencyHook defaultConfig
         { manageHook = manageDocks <+> manageHook defaultConfig
         , layoutHook = avoidStruts  $  noBorders $ layoutHook defaultConfig
+        , handleEventHook = handleEventHook defaultConfig <+> docksEventHook
         , logHook = dynamicLogWithPP xmobarPP
                         { ppOutput = hPutStrLn xmproc
                         , ppTitle = xmobarColor "#93a1a1" "" . shorten 50
