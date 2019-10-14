@@ -40,7 +40,7 @@ values."
      floobits
      git
      github
-     go
+     (go :variables go-format-before-save t)
      groovy
      haskell
      helm
@@ -369,6 +369,9 @@ in `dotspacemacs/user-config'."
 
    ;; set a savehist length as it causes hangs when it gets long
    history-length 100
+
+   ;; run `goimports' instead of `gofmt'
+   gofmt-command "goimports"
   ))
 
 (defun projectile-compile ()
