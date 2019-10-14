@@ -41,6 +41,7 @@ values."
      git
      github
      go
+     groovy
      haskell
      helm
      html
