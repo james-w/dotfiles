@@ -8,6 +8,7 @@ import XMonad.Layout.NoBorders
 import qualified XMonad.StackSet as W
 import XMonad.Util.Run(spawnPipe)
 import System.IO
+import Graphics.X11.ExtraTypes.XF86
 
 
 myKeyBindings conf@(XConfig {XMonad.modMask = modm}) = keys defaultConfig conf `M.union` (M.fromList $
@@ -16,6 +17,9 @@ myKeyBindings conf@(XConfig {XMonad.modMask = modm}) = keys defaultConfig conf `
    , ((modm, xK_v), prevWS)
    , ((modm, xK_c), sendMessage ToggleStruts)
    , ((shiftMask .|. modm, xK_l), spawn "gnome-screensaver-command -l")
+   , ((0, xF86XK_AudioLowerVolume), spawn "amixer -D pulse sset Master 5%-")
+   , ((0, xF86XK_AudioRaiseVolume), spawn "amixer -D pulse sset Master 5%+")
+   , ((0, xF86XK_AudioMute), spawn "amixer -D pulse sset Master toggle")
     ] ++
     [((m .|. modm, k), windows $ f i)
          | (i, k) <- zip (workspaces conf) [xK_1 .. xK_9]
