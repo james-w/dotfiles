@@ -40,8 +40,10 @@ let g:airline_powerline_fonts = 1
 " have airline at start
 set laststatus=2
 
-:nnoremap <leader>s :update<CR>
-:nnoremap <leader>f :Ag <C-r><C-w><CR>
+let mapleader="\<Space>"
+
+:nnoremap <leader>fs :update<CR>
+:nnoremap <leader>s :Ag <C-r><C-w><CR>
 :nnoremap <leader>c :cw<CR>
 :nnoremap <leader>u :GundoToggle<CR>
 :nnoremap <leader>t :TagbarToggle<CR>
