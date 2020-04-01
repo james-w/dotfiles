@@ -55,7 +55,6 @@ function! AckPrompt()
   call inputsave()
   let term = input('Search for: ', cword)
   call inputrestore()
-  call setline('.', curline . ' ' . term)
   execute ':Ack' term dir
 endfunction
 
