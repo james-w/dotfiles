@@ -23,4 +23,3 @@ set directory=./.vim-swap/ " use ./.vim-swap if it exists
 set directory+=~/.vim/swap/ " use ~/.vim/swap otherwise
 set directory+=/tmp/ " fallback to /tmp
 set directory+=. " . as last resort
-

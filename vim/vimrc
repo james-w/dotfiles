@@ -1,3 +1,5 @@
+let mapleader="\<Space>"
+
 let g:ctrlp_custom_ignore = '.*\.pyc'
 
 let g:syntastic_python_checkers = ['pyflakes', 'pep8', 'flake8', 'pylint']
@@ -9,9 +11,6 @@ let g:airline_powerline_fonts = 1
 " have airline at start
 set laststatus=2
 
-let mapleader="\<Space>"
-
-:nnoremap <leader>fs :update<CR>
 :nnoremap <leader>qs :xa<CR>
 :nnoremap <leader>qq :conf qa<CR>
 :nnoremap <leader>qQ :qa!<CR>
@@ -54,9 +53,6 @@ let g:which_key_map.a = { 'name': '+applications' }
 let g:which_key_map.a.u = 'undotree'
 let g:which_key_map.a.t = 'tagbar'
 
-let g:which_key_map.f = { 'name': '+files' }
-let g:which_key_map.f.s = 'save current file'
-
 let g:which_key_map.q = { 'name': '+quit' }
 let g:which_key_map.q.s = 'save and quit'
 let g:which_key_map.q.q = 'prompt and quit'
@@ -77,4 +73,4 @@ autocmd! FileType which_key
 autocmd  FileType which_key set laststatus=0 noshowmode noruler
   \| autocmd BufLeave <buffer> set laststatus=2 showmode ruler
 
-runtime! configs/**/*.vim
+runtime! config/**/*.vim
