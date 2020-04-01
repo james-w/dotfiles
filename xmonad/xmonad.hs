@@ -23,6 +23,9 @@ myKeyBindings conf@(XConfig {XMonad.modMask = modm}) = keys defaultConfig conf `
     ] ++
     [((m .|. modm, k), windows $ f i)
          | (i, k) <- zip (workspaces conf) [xK_1 .. xK_9]
+         , (f, m) <- [(W.view, 0), (W.shift, shiftMask)]] ++
+    [((m .|. modm, k), windows $ f i)
+         | (i, k) <- zip (workspaces conf) [xK_a, xK_s, xK_d, xK_f, xK_g]
          , (f, m) <- [(W.view, 0), (W.shift, shiftMask)]])
 
 myWorkspaces :: [[Char]]
