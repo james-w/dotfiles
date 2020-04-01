@@ -11,10 +11,6 @@ let g:airline_powerline_fonts = 1
 " have airline at start
 set laststatus=2
 
-:nnoremap <leader>qs :xa<CR>
-:nnoremap <leader>qq :conf qa<CR>
-:nnoremap <leader>qQ :qa!<CR>
-
 " ack.vim, using ag
 let g:ackprg = 'ag --vimgrep --smart-case'
 
@@ -52,11 +48,6 @@ let g:which_key_map = {}
 let g:which_key_map.a = { 'name': '+applications' }
 let g:which_key_map.a.u = 'undotree'
 let g:which_key_map.a.t = 'tagbar'
-
-let g:which_key_map.q = { 'name': '+quit' }
-let g:which_key_map.q.s = 'save and quit'
-let g:which_key_map.q.q = 'prompt and quit'
-let g:which_key_map.q.Q = 'force quit'
 
 let g:which_key_map.s = { 'name': '+search' }
 let g:which_key_map.s.a = { 'name' : '+ag' }
