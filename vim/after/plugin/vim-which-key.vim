@@ -1,1 +1,1 @@
-call which_key#register('<leader>', "g:which_key_map")
+call which_key#register(mapleader, "g:which_key_map")
