@@ -1,33 +1,4 @@
-filetype on            " enables filetype detection
-filetype plugin on     " enables filetype specific plugins
-filetype plugin indent on
-
-set wildmode=longest,list
-
-set softtabstop=4
-set shiftwidth=4
-set tabstop=4
-set expandtab
-
-colorscheme desert
-
 let g:ctrlp_custom_ignore = '.*\.pyc'
-
-set backupdir-=.
-set backupdir+=.
-set backupdir-=~/
-set backupdir^=~/.vim/backup/
-
-set directory=./.vim-swap//
-set directory+=~/.vim/swap//
-set directory+=~/tmp//
-set directory+=.
-
-syntax enable
-set t_Co=256
-set background=dark
-let g:solarized_termcolors=256
-colorscheme solarized
 
 let g:syntastic_python_checkers = ['pyflakes', 'pep8', 'flake8', 'pylint']
 let g:syntastic_always_populate_loc_list = 1
@@ -105,3 +76,5 @@ vnoremap <silent> <localleader> :<c-u>WhichKeyVisual  ','<CR>
 autocmd! FileType which_key
 autocmd  FileType which_key set laststatus=0 noshowmode noruler
   \| autocmd BufLeave <buffer> set laststatus=2 showmode ruler
+
+runtime! configs/**/*.vim
