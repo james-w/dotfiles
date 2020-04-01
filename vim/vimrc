@@ -11,8 +11,6 @@ set expandtab
 
 colorscheme desert
 
-call pathogen#infect()
-
 let g:ctrlp_custom_ignore = '.*\.pyc'
 
 set backupdir-=.
@@ -99,7 +97,6 @@ let g:which_key_map.s.a = { 'name' : '+ag' }
 let g:which_key_map.s.a.d = 'search dir of current file'
 let g:which_key_map.s.l = 'show previous results'
 
-call which_key#register('<Space>', "g:which_key_map")
 nnoremap <silent> <leader>      :<c-u>WhichKey '<Space>'<CR>
 vnoremap <silent> <leader>      :<c-u>WhichKeyVisual '<Space>'<CR>
 nnoremap <silent> <localleader> :<c-u>WhichKey  ','<CR>
