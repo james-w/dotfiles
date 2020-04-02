@@ -27,9 +27,6 @@ endfunction
 :nnoremap <leader>sad :call AckPrompt()<CR>
 :nnoremap <leader>sl :copen<CR>
 
-" tagbar
-:nnoremap <leader>at :TagbarToggle<CR>
-
 " for vim-gitgutter
 highlight clear SignColumn
 highlight GitGutterAdd ctermfg=green guifg=darkgreen
@@ -38,26 +35,11 @@ highlight GitGutterDelete ctermfg=red guifg=darkred
 highlight GitGutterChangeDelete ctermfg=yellow guifg=darkyellow
 
 " for vim-which-key
-set timeoutlen=500
-
 let g:which_key_map = {}
-
-let g:which_key_map.a = { 'name': '+applications' }
-let g:which_key_map.a.t = 'tagbar'
 
 let g:which_key_map.s = { 'name': '+search' }
 let g:which_key_map.s.a = { 'name' : '+ag' }
 let g:which_key_map.s.a.d = 'search dir of current file'
 let g:which_key_map.s.l = 'show previous results'
-
-nnoremap <silent> <leader>      :<c-u>WhichKey mapleader<CR>
-vnoremap <silent> <leader>      :<c-u>WhichKeyVisual mapleader<CR>
-nnoremap <silent> <localleader> :<c-u>WhichKey  localleader<CR>
-vnoremap <silent> <localleader> :<c-u>WhichKeyVisual  localleader<CR>
-
-" hide statusbar
-autocmd! FileType which_key
-autocmd  FileType which_key set laststatus=0 noshowmode noruler
-  \| autocmd BufLeave <buffer> set laststatus=2 showmode ruler
 
 runtime! config/**/*.vim
