@@ -3,6 +3,7 @@ call g:JmacsRegisterGroup('files', [g:JmacsFilePrefix])
 call g:JmacsRegisterFileBinding('delete current file', ':!rm %<CR>', ['D'])
 call g:JmacsRegisterFileBinding('view directory listing', ':Ex<CR>', ['j'])
 call g:JmacsRegisterFileBinding('save current file', ':update<CR>', ['s'])
+call g:JmacsRegisterFileBinding('save all files', ':wall<CR>', ['S'])
 
 call g:JmacsRegisterGroup('jmacs', [g:JmacsFilePrefix, 'e'])
 
