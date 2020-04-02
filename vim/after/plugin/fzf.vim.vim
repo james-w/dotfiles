@@ -17,3 +17,12 @@ function! AgDirCurrentFile()
 endfunction
 
 call g:JmacsRegisterSearchCallBinding('dir of current file', 'call AgDirCurrentFile()', ['a', 'd'])
+
+function! FilesInProject()
+  let dir = FindRootDirectory()
+  call fzf#vim#files('', fzf#vim#with_preview({'dir': dir}))
+endfunction
+
+call g:JmacsRegisterProjectCallBinding('find file', 'call FilesInProject()', ['f'])
+
+call g:JmacsRegisterBinding('list buffers', ':Buffers<CR> ', ['b', 'b'])

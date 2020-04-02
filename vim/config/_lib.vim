@@ -1,6 +1,7 @@
 let g:JmacsApplicationPrefix = 'a'
 let g:JmacsFilePrefix = 'f'
 let g:JmacsSearchPrefix = 's'
+let g:JmacsProjectPrefix = 'p'
 
 " for vim-which-key
 let g:which_key_map = {}
@@ -75,4 +76,18 @@ function! g:JmacsRegisterSearchCallBinding(name, action, keys)
     echoerr "insufficient key bindings"
   endif
   call g:JmacsRegisterCallBinding(a:name, a:action, [g:JmacsSearchPrefix] + a:keys)
+endfunction
+
+function! g:JmacsRegisterProjectBinding(name, action, keys)
+  if len(a:keys) < 1
+    echoerr "insufficient key bindings"
+  endif
+  call g:JmacsRegisterBinding(a:name, a:action, [g:JmacsProjectPrefix] + a:keys)
+endfunction
+
+function! g:JmacsRegisterProjectCallBinding(name, action, keys)
+  if len(a:keys) < 1
+    echoerr "insufficient key bindings"
+  endif
+  call g:JmacsRegisterCallBinding(a:name, a:action, [g:JmacsProjectPrefix] + a:keys)
 endfunction
