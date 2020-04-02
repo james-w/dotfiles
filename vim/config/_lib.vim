@@ -2,6 +2,9 @@ let g:JmacsApplicationPrefix = 'a'
 let g:JmacsFilePrefix = 'f'
 let g:JmacsSearchPrefix = 's'
 
+" for vim-which-key
+let g:which_key_map = {}
+
 function! g:JmacsSetValue(value, keys)
   if len(a:keys) < 1
     echoerr "insufficient key bindings"

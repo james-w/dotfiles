@@ -1,7 +1,5 @@
 let mapleader="\<Space>"
 
-let g:ctrlp_custom_ignore = '.*\.pyc'
-
 let g:syntastic_python_checkers = ['pyflakes', 'pep8', 'flake8', 'pylint']
 let g:syntastic_always_populate_loc_list = 1
 
@@ -17,13 +15,5 @@ highlight GitGutterAdd ctermfg=green guifg=darkgreen
 highlight GitGutterChange ctermfg=yellow guifg=darkyellow
 highlight GitGutterDelete ctermfg=red guifg=darkred
 highlight GitGutterChangeDelete ctermfg=yellow guifg=darkyellow
-
-" for vim-which-key
-let g:which_key_map = {}
-
-let g:which_key_map.s = { 'name': '+search' }
-let g:which_key_map.s.a = { 'name' : '+ag' }
-let g:which_key_map.s.a.d = 'search dir of current file'
-let g:which_key_map.s.l = 'show previous results'
 
 runtime! config/**/*.vim
