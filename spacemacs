@@ -72,6 +72,8 @@ values."
      sql
      syntax-checking
      theming
+     (typescript :variables
+                 typescript-fmt-on-save t)
      version-control
      yaml
      vimscript
