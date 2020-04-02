@@ -25,7 +25,17 @@ function! g:JmacsRegisterBinding(name, action, ...)
     echoerr "insufficient key bindings"
   endif
   let keys = join(['<leader>'] + a:000, '')
-  execute 'nnoremap' . keys ' ' . a:action
+  execute 'nnoremap' . keys . ' ' . a:action
+  call call('g:JmacsSetValue', [a:name] + a:000)
+endfunction
+
+function! g:JmacsRegisterBindingV(name, action, ...)
+  if a:0 < 1
+    echoerr "insufficient key bindings"
+  endif
+  let keys = join(['<leader>'] + a:000, '')
+  execute 'vnoremap' . keys . ' ' . a:action
+  " There doesn't seem to be a separate map for visual mode
   call call('g:JmacsSetValue', [a:name] + a:000)
 endfunction
 
