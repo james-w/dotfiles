@@ -27,9 +27,6 @@ endfunction
 :nnoremap <leader>sad :call AckPrompt()<CR>
 :nnoremap <leader>sl :copen<CR>
 
-" undotree
-:nnoremap <leader>au :UndotreeToggle<CR>
-
 " tagbar
 :nnoremap <leader>at :TagbarToggle<CR>
 
@@ -46,7 +43,6 @@ set timeoutlen=500
 let g:which_key_map = {}
 
 let g:which_key_map.a = { 'name': '+applications' }
-let g:which_key_map.a.u = 'undotree'
 let g:which_key_map.a.t = 'tagbar'
 
 let g:which_key_map.s = { 'name': '+search' }
