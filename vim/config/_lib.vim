@@ -1,47 +1,52 @@
 let g:JmacsFilePrefix = 'f'
 
-function! g:JmacsSetValue(value, ...)
-  if a:0 < 1
+function! g:JmacsSetValue(value, keys)
+  if len(a:keys) < 1
     echoerr "insufficient key bindings"
   endif
   let map = g:which_key_map
   let i = 0
-  while i < a:0 - 1
-    let map = map[a:000[i]]
+  while i < len(a:keys) - 1
+    let map = map[a:keys[i]]
     let i += 1
   endwhile
-  let map[a:000[a:0-1]] = a:value
+  let map[a:keys[len(a:keys)-1]] = a:value
 endfunction
 
-function! g:JmacsRegisterGroup(name, ...)
-  if a:0 < 1
-    echoerr "insufficient key bindings"
-  endif
-  call call("g:JmacsSetValue", [{'name': '+' . a:name}] + a:000)
+function! g:JmacsRegisterGroup(name, keys)
+  call g:JmacsSetValue({'name': '+' . a:name}, a:keys)
 endfunction
 
-function! g:JmacsRegisterBinding(name, action, ...)
-  if a:0 < 1
+function! g:JmacsRegisterBinding(name, action, keys)
+  if len(a:keys) < 1
     echoerr "insufficient key bindings"
   endif
-  let keys = join(['<leader>'] + a:000, '')
-  execute 'nnoremap' . keys . ' ' . a:action
-  call call('g:JmacsSetValue', [a:name] + a:000)
+  let nkeys = join(['<leader>'] + a:keys, '')
+  execute 'nnoremap' . nkeys . ' ' . a:action
+  call g:JmacsSetValue(a:name, a:keys)
 endfunction
 
-function! g:JmacsRegisterBindingV(name, action, ...)
-  if a:0 < 1
+function! g:JmacsRegisterCallBinding(name, action, keys)
+  call g:JmacsRegisterBinding(a:name, ':<C-u>' . a:action . '<CR>', a:keys)
+endfunction
+
+function! g:JmacsRegisterBindingV(name, action, keys)
+  if len(a:keys) < 1
     echoerr "insufficient key bindings"
   endif
-  let keys = join(['<leader>'] + a:000, '')
+  let keys = join(['<leader>'] + a:keys, '')
   execute 'vnoremap' . keys . ' ' . a:action
   " There doesn't seem to be a separate map for visual mode
-  call call('g:JmacsSetValue', [a:name] + a:000)
+  call g:JmacsSetValue(a:name, a:keys)
 endfunction
 
-function! g:JmacsRegisterFileBinding(name, action, ...)
-  if a:0 < 1
+function! g:JmacsRegisterCallBindingV(name, action, keys)
+  call g:JmacsRegisterBindingV(a:name, ':<C-u>' . a:action . '<CR>', a:keys)
+endfunction
+
+function! g:JmacsRegisterFileBinding(name, action, keys)
+  if len(a:keys) < 1
     echoerr "insufficient key bindings"
   endif
-  call call('g:JmacsRegisterBinding', [a:name, a:action, g:JmacsFilePrefix] + a:000)
+  call g:JmacsRegisterBinding(a:name, a:action, [g:JmacsFilePrefix] + a:keys)
 endfunction
