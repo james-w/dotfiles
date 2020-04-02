@@ -1,5 +1,6 @@
-let g:JmacsFilePrefix = 'f'
 let g:JmacsApplicationPrefix = 'a'
+let g:JmacsFilePrefix = 'f'
+let g:JmacsSearchPrefix = 's'
 
 function! g:JmacsSetValue(value, keys)
   if len(a:keys) < 1
@@ -57,4 +58,18 @@ function! g:JmacsRegisterApplicationBinding(name, action, keys)
     echoerr "insufficient key bindings"
   endif
   call g:JmacsRegisterBinding(a:name, a:action, [g:JmacsApplicationPrefix] + a:keys)
+endfunction
+
+function! g:JmacsRegisterSearchBinding(name, action, keys)
+  if len(a:keys) < 1
+    echoerr "insufficient key bindings"
+  endif
+  call g:JmacsRegisterBinding(a:name, a:action, [g:JmacsSearchPrefix] + a:keys)
+endfunction
+
+function! g:JmacsRegisterSearchCallBinding(name, action, keys)
+  if len(a:keys) < 1
+    echoerr "insufficient key bindings"
+  endif
+  call g:JmacsRegisterCallBinding(a:name, a:action, [g:JmacsSearchPrefix] + a:keys)
 endfunction

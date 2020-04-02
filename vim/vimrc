@@ -11,22 +11,6 @@ let g:airline_powerline_fonts = 1
 " have airline at start
 set laststatus=2
 
-" ack.vim, using ag
-let g:ackprg = 'ag --vimgrep --smart-case'
-
-function! AckPrompt()
-  let cword = expand("<cword>")
-  let dir = expand('%:p:h')
-  let curline = getline('.')
-  call inputsave()
-  let term = input('Search for: ', cword)
-  call inputrestore()
-  execute ':Ack' term dir
-endfunction
-
-:nnoremap <leader>sad :call AckPrompt()<CR>
-:nnoremap <leader>sl :copen<CR>
-
 " for vim-gitgutter
 highlight clear SignColumn
 highlight GitGutterAdd ctermfg=green guifg=darkgreen
