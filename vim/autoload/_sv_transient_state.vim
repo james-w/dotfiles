@@ -20,7 +20,7 @@ let s:self._cmp = _sv_api#import('vim#compatible')
 function! s:self.open() abort
   noautocmd botright split __transient_state__
   let self._bufid = bufnr('%')
-  setlocal buftype=nofile bufhidden=wipe nobuflisted nolist noswapfile nowrap cursorline nospell nonu norelativenumber
+  setlocal buftype=nofile bufhidden=wipe nobuflisted nolist noswapfile nowrap cursorline nospell nonu norelativenumber laststatus=0
   set filetype=TransientState
   " let save_tve = &t_ve
   " setlocal t_ve=
@@ -71,7 +71,7 @@ function! s:self.open() abort
       break
     else
       if type(self._handle_inputs[char]) == 2
-        call call(self._handle_inputs[char], [])
+        call call(self._handle_inputs[char], [char])
       elseif type(self._handle_inputs[char]) == 1
         exe self._handle_inputs[char]
       endif

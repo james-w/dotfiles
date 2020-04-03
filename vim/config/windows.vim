@@ -32,7 +32,7 @@ call g:JmacsRegisterBinding('new horizontal split and focus', ':vsplit<CR><C-w>l
 call g:JmacsRegisterBinding('kill window and buffer', ':confirm quit<CR>', [s:WindowsPrefix, 'x'])
 
 function! s:win_resize_transient_state() abort
-  let state = _sv_api#import('transient_state') 
+  let state = _sv_api#import('transient_state')
   call state.set_title('Windows Resize Transient State')
   call state.defind_keys(
         \ {

@@ -56,7 +56,7 @@ function! s:get_projects()
   return projects
 endfunction
 
-function! s:new_project_sink(lines)
+function! s:new_project_sink(name, lines)
   if len(a:lines) < 2
     return
   endif
@@ -66,10 +66,24 @@ function! s:new_project_sink(lines)
   else
     execute 'edit ' . a:lines[1]
   endif
+  execute 'TabooRename ' . a:name
 endfunction
 
 function! s:projects_sink(lines)
-  call fzf#vim#files(a:lines[0], {'sink*': function('s:new_project_sink'), 'options': '--expect=ctrl-t'})
+  if len(a:lines) < 1
+    return
+  endif
+  let dir = a:lines[0]
+  let name = fnamemodify(dir, ':t')
+  let opts = {}
+  " limit extra options to ctrl-t as we are going to force a new tab rather
+  " than a split
+  let opts.options = '--expect=ctrl-t'
+  function! Sink(lines) closure
+    call s:new_project_sink(name, a:lines)
+  endfunction
+  let opts['sink*'] = function('Sink')
+  call fzf#vim#files(dir, opts)
 endfunction
 
 function! ListProjects()

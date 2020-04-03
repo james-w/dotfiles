@@ -36,7 +36,6 @@ let s:apis = {}
 "Import API base the given {name}, and return the API object. for all
 "available APIs please check |spacevim-api|
 function! _sv_api#import(name) abort
-  echom a:name
   if has_key(s:apis, a:name)
     echom "present"
     return deepcopy(s:apis[a:name])
