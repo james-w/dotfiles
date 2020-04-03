@@ -57,11 +57,15 @@ function! s:get_projects()
 endfunction
 
 function! s:new_project_sink(lines)
-  echom string(a:lines)
   if len(a:lines) < 2
     return
   endif
-  execute 'tabedit ' . a:lines[1]
+  " If there are no listed buffers then don't open a new tab
+  if &buflisted > 0
+    execute 'tabedit ' . a:lines[1]
+  else
+    execute 'edit ' . a:lines[1]
+  endif
 endfunction
 
 function! s:projects_sink(lines)
