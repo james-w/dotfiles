@@ -32,7 +32,20 @@ function! s:get_tabs()
   let tabs = []
   let i = 1
   while i < tabpagenr('$') + 1
-    call add(tabs, string(i) . ' ' . TabooTabName(i))
+    let name = TabooTabName(i)
+    let name = empty(name) ? '[untitled]' : name
+    let buffers = tabpagebuflist(i)
+    let bufnames = []
+    for b in buffers
+      if !buflisted(b)
+        continue
+      endif
+      let bname = bufname(b)
+      let line = getbufinfo(b)[0]['lnum']
+      let target = line == 0 ? bname : bname.':'.line
+      call add(bufnames, target)
+    endfor
+    call add(tabs, printf("%d\t%s\t%s", i, name, empty(bufnames) ? '' : string(bufnames)))
     let i = i+1
   endwhile
   return tabs
@@ -42,7 +55,7 @@ function! s:layouts_sink(lines)
   if len(a:lines) < 1
     return
   endif
-  let n = split(a:lines[0], ' ')[0]
+  let n = split(a:lines[0], '\t')[0]
   execute 'tabnext'  n
 endfunction
 

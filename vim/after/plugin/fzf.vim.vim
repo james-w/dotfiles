@@ -79,10 +79,10 @@ function! s:projects_sink(lines)
   " limit extra options to ctrl-t as we are going to force a new tab rather
   " than a split
   let opts.options = '--expect=ctrl-t'
-  function! Sink(lines) closure
+  function! s:_p_sink(lines) closure
     call s:new_project_sink(name, a:lines)
   endfunction
-  let opts['sink*'] = function('Sink')
+  let opts['sink*'] = function('s:_p_sink')
   call fzf#vim#files(dir, opts)
 endfunction
 
@@ -91,4 +91,4 @@ function! ListProjects()
   return fzf#run(fzf#wrap('projects', {'source': projects, 'sink*': function('s:projects_sink'), 'options': '+s --tiebreak=index +m --prompt="Projects>"'}))
 endfunction
 
-call g:JmacsRegisterProjectCallBinding('list', 'call ListProjects()', ['l'])
+call g:JmacsRegisterProjectCallBinding('open recent project in layout', 'call ListProjects()', ['l'])
