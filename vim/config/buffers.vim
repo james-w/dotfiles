@@ -1,1 +1,1 @@
-call g:JmacsRegisterGroup('buffers', ['b'])
+call jmacs#bindings#register_group('buffers', ['b'])

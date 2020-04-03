@@ -1,1 +1,1 @@
-call g:JmacsRegisterGroup('applications', [g:JmacsApplicationPrefix])
+call jmacs#bindings#register_group('applications', [g:JmacsApplicationPrefix])

@@ -2,5 +2,5 @@ function! FocusMode()
     Goyo
 endfunction
 
-call g:JmacsRegisterGroup('ui toggles', ['T'])
-call g:JmacsRegisterCallBinding('focus mode', 'call FocusMode()', ['T', 'f'])
+call jmacs#bindings#register_group('ui toggles', ['T'])
+call jmacs#bindings#register_call_binding('focus mode', 'call FocusMode()', ['T', 'f'])

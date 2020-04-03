@@ -1,1 +1,1 @@
-call g:JmacsRegisterGroup('projects', [g:JmacsProjectPrefix])
+call jmacs#bindings#register_group('projects', [g:JmacsProjectPrefix])

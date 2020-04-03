@@ -131,4 +131,4 @@ function! s:layouts_transient_state() abort
   call state.open()
 endfunction
 
-call g:JmacsRegisterCallBinding('tabs(layouts) transient state', 'call call(' . string(function('s:layouts_transient_state')) . ', [])', ['l'])
+call jmacs#bindings#register_call_binding('tabs(layouts) transient state', 'call call(' . string(function('s:layouts_transient_state')) . ', [])', ['l'])

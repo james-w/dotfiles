@@ -1,1 +1,1 @@
-call g:JmacsRegisterApplicationBinding('tagbar', ':TagbarToggle<CR>', ['t'])
+call jmacs#bindings#register_application_binding('tagbar', ':TagbarToggle<CR>', ['t'])
