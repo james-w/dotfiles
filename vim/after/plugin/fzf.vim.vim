@@ -31,63 +31,16 @@ call g:JmacsRegisterProjectCallBinding('find file', 'call FilesInProject()', ['f
 
 call g:JmacsRegisterBinding('list buffers', ':Buffers<CR> ', ['b', 'b'])
 
-function! s:get_projects()
-  let dirs = []
-  let dir_map = {}
-  for path in v:oldfiles
-    let dir = fnamemodify(path, ':p:h')
-    if !has_key(dir_map, dir)
-      call add(dirs, dir)
-      let dir_map[dir] = 1
-    endif
-  endfor
-
-  let projects = []
-  let project_map = {}
-  for dir in dirs
-    let project = SearchForRootDirectory(dir)
-    if !empty(project)
-      if !has_key(project_map, project)
-        call add(projects, project)
-        let project_map[project] = 1
-      endif
-    endif
-  endfor
-  return projects
-endfunction
-
-function! s:new_project_sink(name, lines)
-  if len(a:lines) < 2
-    return
-  endif
-  " If there are no listed buffers then don't open a new tab
-  if &buflisted > 0
-    execute 'tabedit ' . a:lines[1]
-  else
-    execute 'edit ' . a:lines[1]
-  endif
-  execute 'TabooRename ' . a:name
-endfunction
-
 function! s:projects_sink(lines)
   if len(a:lines) < 1
     return
   endif
   let dir = a:lines[0]
-  let name = fnamemodify(dir, ':t')
-  let opts = {}
-  " limit extra options to ctrl-t as we are going to force a new tab rather
-  " than a split
-  let opts.options = '--expect=ctrl-t'
-  function! s:_p_sink(lines) closure
-    call s:new_project_sink(name, a:lines)
-  endfunction
-  let opts['sink*'] = function('s:_p_sink')
-  call fzf#vim#files(dir, opts)
+  call g:JmacsLaunchProject(dir)
 endfunction
 
 function! ListProjects()
-  let projects = s:get_projects()
+  let projects = g:JmacsGetProjects()
   return fzf#run(fzf#wrap('projects', {'source': projects, 'sink*': function('s:projects_sink'), 'options': '+s --tiebreak=index +m --prompt="Projects>"'}))
 endfunction
 
