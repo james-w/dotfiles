@@ -63,3 +63,4 @@ Ideas
     - https://stackoverflow.com/questions/3706958/vim-navigating-to-previous-and-next-buffers-in-edit-history maybe
   * Ability to relaunch greps with same query
   * quickfix list manipulation (compile group?)
+    * fzf project files sorted by recency

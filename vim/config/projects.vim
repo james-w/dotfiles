@@ -17,9 +17,12 @@ function! s:projects_sink(lines)
   call jmacs#projects#launch(dir)
 endfunction
 
+let s:bin_dir = expand('<sfile>:h').'/bin/'
+let s:preview_cmd = 'bash '.escape(s:bin_dir . 'project_preview.sh', '\')
+
 function! ListProjects()
   let projects = jmacs#projects#list_recent()
-  return fzf#run(fzf#wrap('projects', {'source': projects, 'sink*': function('s:projects_sink'), 'options': '+s --tiebreak=index +m --prompt="Projects>"'}))
+  return fzf#run(fzf#wrap('projects', {'source': projects, 'sink*': function('s:projects_sink'), 'options': '+s --tiebreak=index +m --prompt="Projects>" --preview ' . fzf#shellescape(s:preview_cmd . ' {}')}))
 endfunction
 
 call jmacs#bindings#register_call_binding('open recent project in layout', 'call ListProjects()', g:jmacs_project_group, 'l')
