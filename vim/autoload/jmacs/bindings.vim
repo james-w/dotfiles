@@ -8,16 +8,18 @@ function! jmacs#bindings#set_value(value, keys, remap)
   let map = g:which_key_map
   let i = 0
   while i < len(a:keys) - 1
-    if !has_key(map, a:keys[i])
+    let key = a:keys[i]
+    if !has_key(map, key)
       echoerr 'Unregistered group prefix (during ' . a:value . '): ' . join(a:keys[:i], '')
     endif
-    let map = map[a:keys[i]]
+    let map = map[key]
     let i += 1
   endwhile
-  if !a:remap && has_key(map, a:keys[len(a:keys)-1])
-    echoerr 'Mapping already registered to ' . map[a:keys[len(a:keys)-1]] . ' (during ' . a:value . '): ' . join(a:keys, '')
+  let key = a:keys[len(a:keys)-1]
+  if !a:remap && has_key(map, key)
+    echoerr 'Mapping already registered to ' . map[key] . ' (during ' . a:value . '): ' . join(a:keys, '')
   endif
-  let map[a:keys[len(a:keys)-1]] = a:value
+  let map[key] = a:value
 endfunction
 
 function! jmacs#bindings#register_group(name, group, key)
