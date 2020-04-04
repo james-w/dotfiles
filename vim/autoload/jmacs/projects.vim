@@ -42,6 +42,14 @@ function! s:new_project_sink(name, lines)
     execute 'edit ' . a:lines[1]
   endif
   execute 'TabooRename ' . a:name
+  for file in a:lines[2:5]
+    execute 'vsplit' file
+  endfor
+  " limit the number of splits, but still open the files for history, active
+  " buffers etc.
+  for file in a:lines[6:]
+    execute 'edit' file
+  endfor
 endfunction
 
 function! jmacs#projects#launch(dir)
