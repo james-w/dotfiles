@@ -94,6 +94,7 @@ function! s:self.open() abort
   else
     let self._clear_cmdline = 1
   endif
+  set laststatus=2
   redraw
 endfunction
 
