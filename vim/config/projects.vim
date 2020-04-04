@@ -3,7 +3,7 @@ function! FilesInProject()
   if empty(dir)
     echoerr 'Not in a project'
   else
-    call fzf#vim#files('', fzf#vim#with_preview({'dir': dir}))
+    call fzf#vim#files(dir, fzf#vim#with_preview({}))
   endif
 endfunction
 
