@@ -59,5 +59,7 @@ Ideas
   * filetype bindings (<leader>m in spacemacs)
   * compilation
   * Fix transient states hiding on tab change
+  * Fix transient state close on tab close
   * Fix last buffer (<leader><tab> trying to show closed buffers) 
     - https://stackoverflow.com/questions/3706958/vim-navigating-to-previous-and-next-buffers-in-edit-history maybe
+  * Ability to relaunch greps with same query
