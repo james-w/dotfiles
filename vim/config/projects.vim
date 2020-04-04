@@ -1,5 +1,5 @@
 function! FilesInProject()
-  let dir = FindRootDirectory()
+  let dir = jmacs#projects#current_project()
   if empty(dir)
     echoerr 'Not in a project'
   else

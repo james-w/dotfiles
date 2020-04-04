@@ -1,9 +1,32 @@
 call jmacs#bindings#register_binding('swoop', ':BLines<CR>', g:jmacs_search_group, 's')
 
+function! s:current_dir()
+  return expand('%:p:h')
+endfunction
+
 function! AgDirCurrentFile()
-  let dir = expand('%:p:h')
+  let dir = s:current_dir()
   call fzf#vim#ag('', {'dir': dir})
+endfunction
+
+function! AgDirCurrentFileCursor()
+  let dir = s:current_dir()
+  let query = expand('<cword>')
+  call fzf#vim#ag(query, {'dir': dir})
+endfunction
+
+function! AgDirCurrentFileSelection()
+  let dir = s:current_dir()
+  let query = jmacs#util#get_selected_text()
+  call fzf#vim#ag(query, {'dir': dir})
 endfunction
 
 let s:ag_group = jmacs#bindings#register_group('ag', g:jmacs_search_group, 'a')
 call jmacs#bindings#register_call_binding('dir of current file', 'call AgDirCurrentFile()', s:ag_group, 'd')
+call jmacs#bindings#register_call_binding_v('dir of current file', 'call AgDirCurrentFile()', s:ag_group, 'd')
+call jmacs#bindings#register_call_binding('dir of current file with word under cursor', 'call AgDirCurrentFileCursor()', s:ag_group, 'D')
+call jmacs#bindings#register_call_binding_v('dir of current file with word under cursor', 'call AgDirCurrentFileSelection()', s:ag_group, 'D')
+call jmacs#bindings#register_call_binding('current project', 'call jmacs#projects#ag()', s:ag_group, 'p')
+call jmacs#bindings#register_call_binding_v('current project', 'call jmacs#projects#ag()', s:ag_group, 'p')
+call jmacs#bindings#register_call_binding('current project with word under cursor', 'call jmacs#projects#ag_cursor()', s:ag_group, 'P')
+call jmacs#bindings#register_call_binding_v('current project with word under cursor', 'call jmacs#projects#ag_selection()', s:ag_group, 'P')

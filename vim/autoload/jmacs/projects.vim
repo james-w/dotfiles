@@ -27,6 +27,10 @@ function! jmacs#projects#get_project_for(path)
   return jmacs#rooter#search_for_project_root(a:path)
 endfunction
 
+function! jmacs#projects#current_project()
+  return jmacs#rooter#search_for_project_root(expand('%:p'))
+endfunction
+
 function! s:new_project_sink(name, lines)
   if len(a:lines) < 2
     return
@@ -51,4 +55,33 @@ function! jmacs#projects#launch(dir)
   endfunction
   let opts['sink*'] = function('s:_p_sink')
   call fzf#vim#files(a:dir, opts)
+endfunction
+
+function! jmacs#projects#ag()
+  let dir = jmacs#projects#current_project()
+  if empty(dir)
+    echoerr 'Not in a project'
+  else
+    call fzf#vim#ag('', {'dir': dir})
+  endif
+endfunction
+
+function! jmacs#projects#ag_cursor()
+  let dir = jmacs#projects#current_project()
+  if empty(dir)
+    echoerr 'Not in a project'
+  else
+    let query = expand('<cword>')
+    call fzf#vim#ag(query, {'dir': dir})
+  endif
+endfunction
+
+function! jmacs#projects#ag_selection()
+  let dir = jmacs#projects#current_project()
+  if empty(dir)
+    echoerr 'Not in a project'
+  else
+    let query = jmacs#util#get_selected_text()
+    call fzf#vim#ag(query, {'dir': dir})
+  endif
 endfunction
