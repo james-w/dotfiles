@@ -1,5 +1,8 @@
 call jmacs#bindings#register_binding('delete current file', ':!rm %<CR>', g:jmacs_file_group, 'D')
+call jmacs#bindings#register_binding('find file', ':Files<CR>', g:jmacs_file_group, 'f')
+call jmacs#bindings#register_binding('find file', ':Files<CR>', g:jmacs_file_group, 'F')
 call jmacs#bindings#register_binding('view directory listing', ':Ex<CR>', g:jmacs_file_group, 'j')
+call jmacs#bindings#register_binding('recent files', ':History<CR>', g:jmacs_file_group, 'r')
 call jmacs#bindings#register_binding('save current file', ':update<CR>', g:jmacs_file_group, 's')
 call jmacs#bindings#register_binding('save all files', ':wall<CR>', g:jmacs_file_group, 'S')
 
