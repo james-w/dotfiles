@@ -112,6 +112,13 @@ function! s:layouts_transient_state() abort
         \ ],
         \ 'right' : [
         \ {
+        \ 'key' : 'c',
+        \ 'desc' : 'new tab',
+        \ 'func' : '',
+        \ 'cmd' : 'tabnew',
+        \ 'exit' : 1,
+        \ },
+        \ {
         \ 'key' : 'd',
         \ 'desc' : 'close tab',
         \ 'func' : '',
