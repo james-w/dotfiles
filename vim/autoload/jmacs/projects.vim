@@ -28,7 +28,7 @@ function! jmacs#projects#get_project_for(path)
 endfunction
 
 function! jmacs#projects#current_project()
-  return jmacs#rooter#search_for_project_root(expand('%:p'))
+  return jmacs#projects#get_project_for(expand('%:p'))
 endfunction
 
 function! s:new_project_sink(name, lines)
