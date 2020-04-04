@@ -131,4 +131,5 @@ function! s:layouts_transient_state() abort
   call state.open()
 endfunction
 
-call jmacs#bindings#register_call_binding('tabs(layouts) transient state', 'call call(' . string(function('s:layouts_transient_state')) . ', [])', ['l'])
+" can this just use function() rather than stringing it?
+call jmacs#bindings#register_call_binding('tabs(layouts) transient state', 'call call(' . string(function('s:layouts_transient_state')) . ', [])', g:jmacs_top_group, 'l')

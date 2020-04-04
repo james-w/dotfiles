@@ -1,2 +1,2 @@
-call jmacs#bindings#register_file_binding('nerdtree', ':NERDTreeToggle<CR>', ['t'])
-call jmacs#bindings#register_file_binding('find current file in nerdtree', ':NERDTreeFind<CR>', ['T'])
+call jmacs#bindings#register_binding('nerdtree', ':NERDTreeToggle<CR>', g:jmacs_application_group, 't')
+call jmacs#bindings#register_binding('find current file in nerdtree', ':NERDTreeFind<CR>', g:jmacs_application_group, 'T')

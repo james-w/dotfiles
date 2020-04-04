@@ -1,1 +1,1 @@
-call jmacs#bindings#register_application_binding('undotree', ':UndotreeToggle<CR>', ['u'])
+call jmacs#bindings#register_binding('undotree', ':UndotreeToggle<CR>', g:jmacs_application_group, 'u')
