@@ -58,3 +58,6 @@ Ideas
   * git. magit? fugitive?
   * filetype bindings (<leader>m in spacemacs)
   * compilation
+  * Fix transient states hiding on tab change
+  * Fix last buffer (<leader><tab> trying to show closed buffers) 
+    - https://stackoverflow.com/questions/3706958/vim-navigating-to-previous-and-next-buffers-in-edit-history maybe
