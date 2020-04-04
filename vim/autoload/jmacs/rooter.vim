@@ -1,3 +1,9 @@
+" Adapted from rooter.vim
+
+" Changes:
+"   * Drop all code related to actually changing the dir
+"   * Allow SearchForRootDirectory to be called on any path, not just the path of the current buffer
+
 " Vim plugin to change the working directory to the project root.
 "
 " Copyright 2010-2016 Andrew Stewart, <boss@airbladesoftware.com>
@@ -5,12 +11,8 @@
 
 " Modified to not change, but to be a library function on arbitrary paths
 
-if !exists('g:rooter_patterns')
-  let g:rooter_patterns = ['.git', '.git/', '_darcs/', '.hg/', '.bzr/', '.svn/']
-endif
-
-if !exists('g:rooter_resolve_links')
-  let g:rooter_resolve_links = 0
+if !exists('g:jmacs_rooter_patterns')
+  let g:jmacs_rooter_patterns = ['.git', '.git/', '_darcs/', '.hg/', '.bzr/', '.svn/']
 endif
 
 function! s:IsDirectory(pattern)
@@ -55,8 +57,8 @@ function! s:FindAncestor(path, pattern)
   endif
 endfunction
 
-function! SearchForRootDirectory(path)
-  for pattern in g:rooter_patterns
+function! jmacs#rooter#search_for_project_root(path)
+  for pattern in g:jmacs_rooter_patterns
     let result = s:FindAncestor(a:path, pattern)
     if !empty(result)
       return result

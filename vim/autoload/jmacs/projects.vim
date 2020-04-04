@@ -1,4 +1,4 @@
-function! g:JmacsGetProjects()
+function! jmacs#projects#list_recent()
   let dirs = []
   let dir_map = {}
   for path in v:oldfiles
@@ -12,7 +12,7 @@ function! g:JmacsGetProjects()
   let projects = []
   let project_map = {}
   for dir in dirs
-    let project = g:JmacsGetProjectFor(dir)
+    let project = jmacs#projects#get_project_for(dir)
     if !empty(project)
       if !has_key(project_map, project)
         call add(projects, project)
@@ -23,8 +23,8 @@ function! g:JmacsGetProjects()
   return projects
 endfunction
 
-function! g:JmacsGetProjectFor(path)
-  return SearchForRootDirectory(a:path)
+function! jmacs#projects#get_project_for(path)
+  return jmacs#rooter#search_for_project_root(a:path)
 endfunction
 
 function! s:new_project_sink(name, lines)
@@ -40,7 +40,7 @@ function! s:new_project_sink(name, lines)
   execute 'TabooRename ' . a:name
 endfunction
 
-function! g:JmacsLaunchProject(dir)
+function! jmacs#projects#launch(dir)
   let name = fnamemodify(a:dir, ':t')
   let opts = {}
   " limit extra options to ctrl-t as we are going to force a new tab rather

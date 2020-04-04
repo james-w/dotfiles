@@ -14,11 +14,11 @@ function! s:projects_sink(lines)
     return
   endif
   let dir = a:lines[0]
-  call g:JmacsLaunchProject(dir)
+  call jmacs#projects#launch(dir)
 endfunction
 
 function! ListProjects()
-  let projects = g:JmacsGetProjects()
+  let projects = jmacs#projects#list_recent()
   return fzf#run(fzf#wrap('projects', {'source': projects, 'sink*': function('s:projects_sink'), 'options': '+s --tiebreak=index +m --prompt="Projects>"'}))
 endfunction
 
