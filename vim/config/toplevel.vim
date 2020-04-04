@@ -9,6 +9,6 @@ call jmacs#bindings#register_binding('help (have to press quickly)', ':Helptags<
 call jmacs#bindings#register_call_binding('search in project', 'call jmacs#projects#ag()', g:jmacs_top_group, '/')
 call jmacs#bindings#register_call_binding_v('search in project', 'call jmacs#projects#ag()', g:jmacs_top_group, '/')
 call jmacs#bindings#register_call_binding('search in project with word under cursor', 'call jmacs#projects#ag_cursor()', g:jmacs_top_group, '*')
-call jmacs#bindings#register_call_binding_v('search in project with word under cursor', 'call jmacs#projects#ag_selection()', g:jmacs_top_group, '*')
+call jmacs#bindings#register_call_binding_v('search in project with selection', 'call jmacs#projects#ag_selection()', g:jmacs_top_group, '*')
 
 " comment

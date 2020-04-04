@@ -16,6 +16,10 @@ call jmacs#bindings#register_call_binding('swoop', 'call Swoop()', g:jmacs_searc
 call jmacs#bindings#register_call_binding_v('swoop', 'call Swoop()', g:jmacs_search_group, 's')
 call jmacs#bindings#register_call_binding('swoop region or symbol', 'call SwoopCursor()', g:jmacs_search_group, 'S')
 call jmacs#bindings#register_call_binding_v('swoop region or symbol', 'call SwoopSelection()', g:jmacs_search_group, 'S')
+call jmacs#bindings#register_call_binding('search current project', 'call jmacs#projects#ag()', g:jmacs_search_group, 'p')
+call jmacs#bindings#register_call_binding_v('search current project', 'call jmacs#projects#ag()', g:jmacs_search_group, 'p')
+call jmacs#bindings#register_call_binding('search current project with word under cursor', 'call jmacs#projects#ag_cursor()', g:jmacs_search_group, 'P')
+call jmacs#bindings#register_call_binding_v('search current project with selection', 'call jmacs#projects#ag_selection()', g:jmacs_search_group, 'P')
 
 function! s:current_dir()
   return expand('%:p:h')
@@ -46,4 +50,4 @@ call jmacs#bindings#register_call_binding_v('dir of current file with word under
 call jmacs#bindings#register_call_binding('current project', 'call jmacs#projects#ag()', s:ag_group, 'p')
 call jmacs#bindings#register_call_binding_v('current project', 'call jmacs#projects#ag()', s:ag_group, 'p')
 call jmacs#bindings#register_call_binding('current project with word under cursor', 'call jmacs#projects#ag_cursor()', s:ag_group, 'P')
-call jmacs#bindings#register_call_binding_v('current project with word under cursor', 'call jmacs#projects#ag_selection()', s:ag_group, 'P')
+call jmacs#bindings#register_call_binding_v('current project with selection', 'call jmacs#projects#ag_selection()', s:ag_group, 'P')
