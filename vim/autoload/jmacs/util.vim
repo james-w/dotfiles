@@ -10,3 +10,10 @@ function! jmacs#util#get_selected_text()
     let lines[0] = lines[0][column_start - 1:]
     return join(lines, "\n")
 endfunction
+
+" Print an error message without the traceback
+function! jmacs#util#error(msg)
+  echohl ErrorMsg
+  echom a:msg
+  echohl None
+endfunction

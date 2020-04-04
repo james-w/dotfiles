@@ -4,7 +4,7 @@ call jmacs#bindings#register_binding('find current file in nerdtree', ':NERDTree
 function! s:nerdtree_project()
     let dir = jmacs#projects#current_project()
     if empty(dir)
-        echoerr "Not in a project"
+        call jmacs#util#error("Not in a project")
         return
     endif
     NERDTreeToggle

@@ -68,7 +68,7 @@ endfunction
 function! jmacs#projects#ag()
   let dir = jmacs#projects#current_project()
   if empty(dir)
-    echoerr 'Not in a project'
+    call jmacs#util#error('Not in a project')
   else
     call fzf#vim#ag('', {'dir': dir})
   endif
@@ -77,7 +77,7 @@ endfunction
 function! jmacs#projects#ag_cursor()
   let dir = jmacs#projects#current_project()
   if empty(dir)
-    echoerr 'Not in a project'
+    call jmacs#util#error('Not in a project')
   else
     let query = expand('<cword>')
     call fzf#vim#ag(query, {'dir': dir})
@@ -87,7 +87,7 @@ endfunction
 function! jmacs#projects#ag_selection()
   let dir = jmacs#projects#current_project()
   if empty(dir)
-    echoerr 'Not in a project'
+    call jmacs#util#error('Not in a project')
   else
     let query = jmacs#util#get_selected_text()
     call fzf#vim#ag(query, {'dir': dir})

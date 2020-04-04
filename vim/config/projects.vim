@@ -1,7 +1,7 @@
 function! FilesInProject()
   let dir = jmacs#projects#current_project()
   if empty(dir)
-    echoerr 'Not in a project'
+    call jmacs#util#error('Not in a project')
   else
     call fzf#vim#files(dir, fzf#vim#with_preview({}))
   endif
