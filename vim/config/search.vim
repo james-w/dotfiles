@@ -1,4 +1,21 @@
-call jmacs#bindings#register_binding('swoop', ':BLines<CR>', g:jmacs_search_group, 's')
+function! Swoop()
+  call fzf#vim#buffer_lines()
+endfunction
+
+function! SwoopCursor()
+  let query = expand('<cword>')
+  call fzf#vim#buffer_lines(query)
+endfunction
+
+function! SwoopSelection()
+  let query = jmacs#util#get_selected_text()
+  call fzf#vim#buffer_lines(query)
+endfunction
+
+call jmacs#bindings#register_call_binding('swoop', 'call Swoop()', g:jmacs_search_group, 's')
+call jmacs#bindings#register_call_binding_v('swoop', 'call Swoop()', g:jmacs_search_group, 's')
+call jmacs#bindings#register_call_binding('swoop region or symbol', 'call SwoopCursor()', g:jmacs_search_group, 'S')
+call jmacs#bindings#register_call_binding_v('swoop region or symbol', 'call SwoopSelection()', g:jmacs_search_group, 'S')
 
 function! s:current_dir()
   return expand('%:p:h')
