@@ -1,7 +1,28 @@
+let s:skiplist = [
+      \ 'runtime/doc/.*\.txt',
+      \ 'bundle/.*/doc/.*\.txt',
+      \ 'plugged/.*/doc/.*\.txt',
+      \ '/.git/',
+      \ 'fugitiveblame$',
+      \ '^fugitive://$',
+      \ escape(fnamemodify(resolve($VIMRUNTIME), ':p'), '\') .'doc/.*\.txt',
+      \ ]
+
+function! s:is_in_skiplist(arg) abort
+  for regexp in s:skiplist
+    if a:arg =~# regexp
+      return 1
+    endif
+  endfor
+endfunction
+
 function! jmacs#projects#list_recent()
   let dirs = []
   let dir_map = {}
   for path in v:oldfiles
+    if s:is_in_skiplist(path)
+      continue
+    endif
     let dir = fnamemodify(path, ':p:h')
     if !has_key(dir_map, dir)
       call add(dirs, dir)
