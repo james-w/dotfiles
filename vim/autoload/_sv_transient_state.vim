@@ -80,7 +80,7 @@ function! s:self.open() abort
       break
     endif
   endwhile
-  exe 'bd ' . self._bufid
+  exe 'silent! bd ' . self._bufid
   doautocmd WinEnter
   if has_key(self._handle_quit, char)
     if type(self._handle_quit[char]) == 2
