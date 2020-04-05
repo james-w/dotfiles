@@ -63,6 +63,8 @@ endfunction
 let g:jmacs_top_group = {'keys': []}
 let g:jmacs_application_group = jmacs#bindings#register_group('applications', g:jmacs_top_group, 'a')
 let g:jmacs_buffers_group = jmacs#bindings#register_group('buffers', g:jmacs_top_group, 'b')
+let g:jmacs_compile_group = jmacs#bindings#register_group('compile/comments', g:jmacs_top_group, 'c')
+let g:jmacs_comments_group = g:jmacs_compile_group
 let g:jmacs_file_group = jmacs#bindings#register_group('files', g:jmacs_top_group, 'f')
 let g:jmacs_git_group = jmacs#bindings#register_group('git', g:jmacs_top_group, 'g')
 let g:jmacs_project_group = jmacs#bindings#register_group('project', g:jmacs_top_group, 'p')

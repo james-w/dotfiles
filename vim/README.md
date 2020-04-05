@@ -51,7 +51,7 @@ Ideas
     for a yank
     - https://github.com/liuchengxu/vim-which-key/issues/14
     - https://github.com/SpaceVim/SpaceVim/blob/331139505ad257bb2e1df6f44557aeda8b247a24/autoload/SpaceVim/mapping/g.vimhttps://github.com/neoclide/coc.nvim
-  * NerdCommenter https://github.com/preservim/nerdcommenter
+  * Fix comment bindings
   * coc for completion? https://github.com/neoclide/coc.nvim
   * peeakboo for registers: https://github.com/junegunn/vim-peekaboo
   * quicklist bindings
