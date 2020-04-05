@@ -26,3 +26,11 @@ function! ListProjects()
 endfunction
 
 call jmacs#bindings#register_call_binding('open recent project in layout', 'call ListProjects()', g:jmacs_project_group, 'l')
+
+function! FindProject()
+  let base = get(g:, 'jmacs_projects_base_dir', $HOME)
+  let find = 'find ' . fzf#shellescape(base) . ' -type d'
+  return fzf#run(fzf#wrap('dirs', {'source': find, 'sink*': function('s:projects_sink'), 'options': '+m --prompt="Dirs>" --preview ' . fzf#shellescape(s:preview_cmd . ' {}')}))
+endfunction
+
+call jmacs#bindings#register_call_binding('open project in layout', 'call FindProject()', g:jmacs_project_group, 'n')
