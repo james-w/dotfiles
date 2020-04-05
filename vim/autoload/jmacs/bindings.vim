@@ -64,6 +64,7 @@ let g:jmacs_top_group = {'keys': []}
 let g:jmacs_application_group = jmacs#bindings#register_group('applications', g:jmacs_top_group, 'a')
 let g:jmacs_buffers_group = jmacs#bindings#register_group('buffers', g:jmacs_top_group, 'b')
 let g:jmacs_file_group = jmacs#bindings#register_group('files', g:jmacs_top_group, 'f')
+let g:jmacs_git_group = jmacs#bindings#register_group('git', g:jmacs_top_group, 'g')
 let g:jmacs_project_group = jmacs#bindings#register_group('project', g:jmacs_top_group, 'p')
 let g:jmacs_search_group = jmacs#bindings#register_group('search', g:jmacs_top_group, 's')
 let g:jmacs_uitoggles_group = jmacs#bindings#register_group('ui toggles', g:jmacs_top_group, 'T')

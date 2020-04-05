@@ -1,6 +1,5 @@
-let s:git_group = jmacs#bindings#register_group('git', g:jmacs_top_group, 'g')
-call jmacs#bindings#register_binding('blame', ":Gblame<CR>", s:git_group, 'b')
-call jmacs#bindings#register_binding('status', ":vertical Git<CR>", s:git_group, 's')
+call jmacs#bindings#register_binding('blame', ":Gblame<CR>", g:jmacs_git_group, 'b')
+call jmacs#bindings#register_binding('status', ":vertical Git<CR>", g:jmacs_git_group, 's')
 
 function! s:get_git_root(dir)
   let root = split(system('git -C ' . fzf#shellescape(a:dir) . ' rev-parse --show-toplevel'), '\n')[0]
@@ -227,6 +226,6 @@ function! s:git_log_file()
   return s:commits(dir, 1, {})
 endfunction
 
-let s:file_group = jmacs#bindings#register_group('file', s:git_group, 'f')
+let s:file_group = jmacs#bindings#register_group('file', g:jmacs_git_group, 'f')
 call jmacs#bindings#register_binding('blame', ':Git blame<CR>', s:file_group, 'b')
 call jmacs#bindings#register_call_binding('log', 'call call(' . string(function('s:git_log_file')) . ', [])', s:file_group, 'l')
