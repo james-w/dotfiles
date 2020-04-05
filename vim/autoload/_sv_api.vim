@@ -37,7 +37,6 @@ let s:apis = {}
 "available APIs please check |spacevim-api|
 function! _sv_api#import(name) abort
   if has_key(s:apis, a:name)
-    echom "present"
     return deepcopy(s:apis[a:name])
   endif
   let p = {}
