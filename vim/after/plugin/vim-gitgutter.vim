@@ -66,7 +66,7 @@ function! s:git_transient_state() abort
         \ 'exit' : 1,
         \ },
         \ {
-        \ 'key' : 's',
+        \ 'key' : 'S',
         \ 'desc' : 'status',
         \ 'func' : '',
         \ 'cmd' : ':Git',

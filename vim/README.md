@@ -55,7 +55,6 @@ Ideas
   * coc for completion? https://github.com/neoclide/coc.nvim
   * peeakboo for registers: https://github.com/junegunn/vim-peekaboo
   * quicklist bindings
-  * git. magit? fugitive?
   * filetype bindings (<leader>m in spacemacs)
   * compilation
   * Fix transient states hiding on tab change
@@ -63,4 +62,5 @@ Ideas
     - https://stackoverflow.com/questions/3706958/vim-navigating-to-previous-and-next-buffers-in-edit-history maybe
   * Ability to relaunch greps with same query
   * quickfix list manipulation (compile group?)
-    * fzf project files sorted by recency
+  * fzf project files sorted by recency
+  * git conflict helper
