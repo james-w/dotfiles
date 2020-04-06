@@ -1,5 +1,6 @@
 import qualified Data.Map as M
 import XMonad
+import XMonad.Actions.CopyWindow
 import XMonad.Actions.CycleWS
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
@@ -20,6 +21,8 @@ myKeyBindings conf@(XConfig {XMonad.modMask = modm}) = keys defaultConfig conf `
    , ((0, xF86XK_AudioLowerVolume), spawn "amixer -D pulse sset Master 5%-")
    , ((0, xF86XK_AudioRaiseVolume), spawn "amixer -D pulse sset Master 5%+")
    , ((0, xF86XK_AudioMute), spawn "amixer -D pulse sset Master toggle")
+   , ((modm .|. shiftMask    , xK_equal    ), windows $ copyToAll)    -- Pin to all workspaces
+   , ((modm                  , xK_minus    ), killAllOtherCopies )    -- remove from all but current
     ] ++
     [((m .|. modm, k), windows $ f i)
          | (i, k) <- zip (workspaces conf) [xK_1 .. xK_9]
