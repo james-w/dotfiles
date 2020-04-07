@@ -3,6 +3,7 @@ import XMonad
 import XMonad.Actions.CopyWindow
 import XMonad.Actions.CycleWS
 import XMonad.Hooks.DynamicLog
+import XMonad.Hooks.FadeInactive
 import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.UrgencyHook
 import XMonad.Layout.NoBorders
@@ -50,6 +51,7 @@ main = do
                         , ppUrgent = xmobarColor "#cb4b16" "" . xmobarStrip
                         , ppCurrent = xmobarColor "#859900" "" . xmobarStrip
                         }
+                    <+> fadeInactiveLogHook 0.8
         , normalBorderColor = "#002b36"
         , focusedBorderColor = "#657b83"
         , keys = myKeyBindings
