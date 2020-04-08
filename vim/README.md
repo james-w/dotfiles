@@ -51,16 +51,13 @@ Ideas
     for a yank
     - https://github.com/liuchengxu/vim-which-key/issues/14
     - https://github.com/SpaceVim/SpaceVim/blob/331139505ad257bb2e1df6f44557aeda8b247a24/autoload/SpaceVim/mapping/g.vimhttps://github.com/neoclide/coc.nvim
-  * Fix comment bindings
-  * coc for completion? https://github.com/neoclide/coc.nvim
-  * peeakboo for registers: https://github.com/junegunn/vim-peekaboo
-  * quicklist bindings
-  * filetype bindings (<leader>m in spacemacs)
   * compilation
+  * quicklist bindings
+  * peeakboo for registers: https://github.com/junegunn/vim-peekaboo
+  * fzf project files sorted by recency
+  * git conflict helper
+  * filetype bindings (<leader>m in spacemacs)
   * Fix transient states hiding on tab change
   * Fix last buffer (<leader><tab> trying to show closed buffers) 
     - https://stackoverflow.com/questions/3706958/vim-navigating-to-previous-and-next-buffers-in-edit-history maybe
   * Ability to relaunch greps with same query
-  * quickfix list manipulation (compile group?)
-  * fzf project files sorted by recency
-  * git conflict helper
