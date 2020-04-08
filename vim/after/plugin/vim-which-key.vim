@@ -1,4 +1,4 @@
-set timeoutlen=500
+set timeoutlen=300
 
 call which_key#register(mapleader, "g:which_key_map")
 
