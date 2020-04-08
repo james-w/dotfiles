@@ -27,3 +27,11 @@ set directory+=. " . as last resort
 " turn on line numbers
 set number
 set relativenumber
+
+" highlight current line in active window
+set cul
+augroup BgHighlight
+    autocmd!
+    autocmd WinEnter * set cul
+    autocmd WinLeave * set nocul
+augroup END
