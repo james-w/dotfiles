@@ -2,7 +2,7 @@ vim
 ===
 
 Plugins are loaded as vim packages. You can see the plugin list at
-https://github.com/james-w/setup/blob/master/roles/vim/tasks/main.yml
+[my ansible setup](https://github.com/james-w/setup/blob/master/roles/vim/tasks/main.yml)
 
 The config is inspired by spacemacs, and built around the leader
 key and vim-which-key to provide that experience.
@@ -12,9 +12,9 @@ Dependencies
 
 This requires:
 
-  * vim-which-key
-  * fzf.vim
-  * taboo
+* vim-which-key
+* fzf.vim
+* taboo
   
 before it will do much. Other plugins are used when available.
 
@@ -46,18 +46,18 @@ until you leave, or one of the actions ends the state.
 Ideas
 -----
 
-  * Have a binding that shows top-level keys (e.g. y=yank) (<leader>hk in spacemacs)
-  * Use vim-which-key on other prefixes to show e.g. possible motions
-    for a yank
-    - https://github.com/liuchengxu/vim-which-key/issues/14
-    - https://github.com/SpaceVim/SpaceVim/blob/331139505ad257bb2e1df6f44557aeda8b247a24/autoload/SpaceVim/mapping/g.vimhttps://github.com/neoclide/coc.nvim
-  * compilation
-  * quicklist bindings
-  * peeakboo for registers: https://github.com/junegunn/vim-peekaboo
-  * fzf project files sorted by recency
-  * git conflict helper
-  * filetype bindings (<leader>m in spacemacs)
-  * Fix transient states hiding on tab change
-  * Fix last buffer (<leader><tab> trying to show closed buffers) 
-    - https://stackoverflow.com/questions/3706958/vim-navigating-to-previous-and-next-buffers-in-edit-history maybe
-  * Ability to relaunch greps with same query
+* Have a binding that shows top-level keys (e.g. y=yank) (&lt;leader>hk in spacemacs)
+* Use vim-which-key on other prefixes to show e.g. possible motions
+  for a yank
+  * [issue requesting this](https://github.com/liuchengxu/vim-which-key/issues/14)
+  * [implementation in spacevim](https://github.com/SpaceVim/SpaceVim/blob/331139505ad257bb2e1df6f44557aeda8b247a24/autoload/SpaceVim/mapping/g.vim)
+* compilation
+* quicklist bindings
+* [peeakboo for registers](https://github.com/junegunn/vim-peekaboo)
+* git conflict helper
+* filetype bindings (&lt;leader>m in spacemacs)
+* Fix transient states hiding on tab change
+* Fix last buffer (&lt;leader>&lt;tab> trying to show closed buffers)
+  * [maybe this helps?](https://stackoverflow.com/questions/3706958/vim-navigating-to-previous-and-next-buffers-in-edit-history)
+* Ability to relaunch greps with same query
+* Project TODOs

@@ -83,8 +83,17 @@ function! jmacs#projects#launch(dir)
     call s:new_project_sink(name, a:lines)
   endfunction
   let opts['sink*'] = function('s:_p_sink')
-  call fzf#vim#files(a:dir, opts)
+  call jmacs#projects#fzf_files(a:dir, opts)
 endfunction
+
+function! jmacs#projects#fzf_files(dir, opts)
+  let opts = deepcopy(a:opts)
+  let files = jmacs#projects#recent_files(a:dir)
+  call map(files, 'strpart(v:val, len(a:dir)+1)')
+  let opts.source = 'bash -c "echo -e \"' . join(files, '\n') . '\"; ag -l -g \"\""'
+  let opts.dir = a:dir
+  call fzf#run(fzf#wrap('files', opts))
+endfunction!
 
 function! jmacs#projects#ag()
   let dir = jmacs#projects#current_project()
@@ -113,4 +122,23 @@ function! jmacs#projects#ag_selection()
     let query = jmacs#util#get_selected_text()
     call fzf#vim#ag(query, {'dir': dir})
   endif
+endfunction
+
+function! jmacs#projects#recent_files(project)
+  let files = []
+  let seen = {}
+  for raw_path in v:oldfiles
+    let path = fnamemodify(raw_path, ':p')
+    if !filereadable(path)
+      continue
+    endif
+    if !has_key(seen, path)
+      let seen[path] = 1
+      let other = jmacs#projects#get_project_for(path)
+      if a:project ==# other
+          call add(files, path)
+      endif
+    endif
+  endfor
+  return files
 endfunction

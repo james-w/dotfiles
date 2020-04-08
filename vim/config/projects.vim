@@ -3,11 +3,22 @@ function! FilesInProject()
   if empty(dir)
     call jmacs#util#error('Not in a project')
   else
-    call fzf#vim#files(dir, fzf#vim#with_preview({}))
+    call jmacs#projects#fzf_files(dir, fzf#vim#with_preview({}))
+  endif
+endfunction
+
+function! ProjectRecentFiles()
+  let dir = jmacs#projects#current_project()
+  if empty(dir)
+    call jmacs#util#error('Not in a project')
+  else
+    let files = jmacs#projects#recent_files(dir)
+    return fzf#run(fzf#wrap('recent', fzf#vim#with_preview({'source': files, 'options': '+s -m --prompt="Recent>"'})))
   endif
 endfunction
 
 call jmacs#bindings#register_call_binding('find file', 'call FilesInProject()', g:jmacs_project_group, 'f')
+call jmacs#bindings#register_call_binding('recent files', 'call ProjectRecentFiles()', g:jmacs_project_group, 'r')
 
 function! s:projects_sink(lines)
   if len(a:lines) < 1
