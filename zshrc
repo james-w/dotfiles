@@ -164,3 +164,6 @@ export FZF_DEFAULT_OPTS='--height 40% --reverse --border'
 function tardiff() {
     diff -u <(tar -v -tf $1) <(tar -v -tf $2)
 }
+
+export GOPATH=~/devel/gopath
+export PATH=$PATH:$GOPATH/bin
