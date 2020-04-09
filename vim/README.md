@@ -53,7 +53,7 @@ Ideas
   * [implementation in spacevim](https://github.com/SpaceVim/SpaceVim/blob/331139505ad257bb2e1df6f44557aeda8b247a24/autoload/SpaceVim/mapping/g.vim)
 * compilation
 * quicklist bindings
-* [peeakboo for registers](https://github.com/junegunn/vim-peekaboo)
+* git transient mode
 * git conflict helper
 * filetype bindings (&lt;leader>m in spacemacs)
 * Fix transient states hiding on tab change
@@ -61,3 +61,4 @@ Ideas
   * [maybe this helps?](https://stackoverflow.com/questions/3706958/vim-navigating-to-previous-and-next-buffers-in-edit-history)
 * Ability to relaunch greps with same query
 * Project TODOs
+* [quickscope?](https://github.com/unblevable/quick-scope)
