@@ -21,6 +21,37 @@ function! s:stage_hunk(char)
   call gitgutter#hunk#stage()
 endfunction
 
+function! s:create_branch_sink(lines)
+  if len(a:lines) < 1
+    return
+  endif
+  let source = a:lines[0]
+  call inputsave()
+  let term = input('New branch name: ')
+  call inputrestore()
+  execute ':Git checkout -b' term source
+endfunction
+
+function! s:switch_branch_sink(lines)
+  if len(a:lines) < 1
+    return
+  endif
+  let branch = a:lines[0]
+  execute ':Git checkout ' branch
+endfunction
+
+function! s:fzf_branches(sink)
+  return fzf#run(fzf#wrap('branches', {'source': '(git branch -a | cut -c 3-)', 'sink*': a:sink, 'options': '+s +m --prompt="Branches>" --preview "git show --color=always {}"'}))
+endfunction
+
+function s:branch(char)
+  return s:fzf_branches(function('s:create_branch_sink'))
+endfunction
+
+function s:checkout(char)
+  return s:fzf_branches(function('s:switch_branch_sink'))
+endfunction
+
 function! s:git_transient_state() abort
   let state = _sv_api#import('transient_state')
   call state.set_title('Git Transient State')
@@ -58,6 +89,20 @@ function! s:git_transient_state() abort
         \ },
         \ ],
         \ 'right' : [
+        \ {
+        \ 'key' : 'b',
+        \ 'desc' : 'checkout branch',
+        \ 'func' : function('s:checkout'),
+        \ 'cmd' : '',
+        \ 'exit' : 1,
+        \ },
+        \ {
+        \ 'key' : 'B',
+        \ 'desc' : 'create branch',
+        \ 'func' : function('s:branch'),
+        \ 'cmd' : '',
+        \ 'exit' : 1,
+        \ },
         \ {
         \ 'key' : 'c',
         \ 'desc' : 'commit',
