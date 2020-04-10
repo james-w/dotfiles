@@ -46,22 +46,13 @@ endfunction
 
 call jmacs#bindings#register_call_binding('open project in layout', 'call FindProject()', g:jmacs_project_group, 'n')
 
-" Double escape to get to normal mode in terminal
-tnoremap <Esc><Esc> <C-\><C-n>
-
 function! ProjectTerminal()
   let dir = jmacs#projects#current_project()
   if empty(dir)
     call jmacs#util#error('Not in a project')
     return
   endif
-  let old_dir = getcwd()
-  call chdir(dir)
-  try
-    call term_start($SHELL)
-  finally
-    call chdir(old_dir)
-  endtry
+  return jmacs#terminal#toggle(dir)
 endfunction
 
 call jmacs#bindings#register_call_binding('open terminal in project root', 'call ProjectTerminal()', g:jmacs_project_group, '$')

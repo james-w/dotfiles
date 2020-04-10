@@ -62,3 +62,4 @@ Ideas
 * Ability to relaunch greps with same query
 * Project TODOs
 * [quickscope?](https://github.com/unblevable/quick-scope)
+* Bindings to create a file by fzf a dir, then enter a filename
