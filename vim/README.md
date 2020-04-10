@@ -62,4 +62,4 @@ Ideas
 * Ability to relaunch greps with same query
 * Project TODOs
 * [quickscope?](https://github.com/unblevable/quick-scope)
-* Bindings to create a file by fzf a dir, then enter a filename
+* Bindings to create a file by fzf a dir, then enter a filename. Which dir to use as the base outside a project
