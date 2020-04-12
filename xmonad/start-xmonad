@@ -3,13 +3,14 @@ export GTK2_RC_FILES="$HOME/.gtkrc-2.0"
 xcompmgr -c &
 stalonetray \
     --icon-gravity E \
-    --geometry 4x1-0+0 \
-    --max-geometry 4x1-0+0 \
-    --background '#002b36' \
+    --geometry 5x1-0+0 \
+    --max-geometry 5x1-0+0 \
+    --background '#0f111a' \
     --skip-taskbar \
     --icon-size 24 \
     --kludges force_icons_size \
     --window-strut none \
+    --window-layer bottom \
     &
 gnome-settings-daemon &
 sleep 2

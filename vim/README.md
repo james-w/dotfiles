@@ -53,7 +53,6 @@ Ideas
   * [implementation in spacevim](https://github.com/SpaceVim/SpaceVim/blob/331139505ad257bb2e1df6f44557aeda8b247a24/autoload/SpaceVim/mapping/g.vim)
 * compilation
 * quicklist bindings
-* git transient mode
 * git conflict helper
 * filetype bindings (&lt;leader>m in spacemacs)
 * Fix transient states hiding on tab change
@@ -62,4 +61,5 @@ Ideas
 * Ability to relaunch greps with same query
 * Project TODOs
 * [quickscope?](https://github.com/unblevable/quick-scope)
-* Bindings to create a file by fzf a dir, then enter a filename. Which dir to use as the base outside a project
+* Bindings to create a file by fzf a dir, then enter a filename. Which dir to
+  use as the base outside a project?

@@ -2,14 +2,13 @@ Config {
     -- Set font and default foreground/background colors. Note that
     -- the height of xmobar is controlled by the font you use.
     font = "xft:Ubuntu Mono-14",
-    bgColor = "#002b36",
-    fgColor = "#657b83",
-    -- Position is top left, taking up 95% of screen.
-    -- You are likely to have to tweak the width here based on the width
-    -- of your screen to make it play nicely with stalonetray, which we
-    -- want to be taking up the remainer of the space on the right side
-    -- of your screen.
-    position = TopW L 95,
+    bgColor = "#0f111a",
+    fgColor = "#8f93a2",
+    -- Position xmobar along the top, with a stalonetray in the top right.
+    -- Add right padding to xmobar to ensure stalonetray and xmobar don't
+    -- overlap. stalonetrayrc-single is configured for 5 icons, each 24px
+    -- wide.
+    position = TopP 0 120,
     -- list of commands which gather information about your system for
     -- presentation in the bar.
     commands = [

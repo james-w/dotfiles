@@ -95,6 +95,10 @@ POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX=""
 POWERLEVEL9K_MULTILINE_SECOND_PROMPT_PREFIX="↳ "
 POWERLEVEL9K_CUSTOM_KUBECTL="kubectl config current-context"
 
+# tweak some colours to work better with Material theme
+POWERLEVEL9K_CONTEXT_DEFAULT_FOREGROUND='004'
+POWERLEVEL9K_STATUS_ERROR_BACKGROUND='001'
+
 # https://github.com/bhilburn/powerlevel9k/issues/319
 function zle-line-init {
     powerlevel9k_prepare_prompts
