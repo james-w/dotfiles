@@ -6,6 +6,9 @@ syntax enable          " enable syntax highlighting
 set wildmode=longest,list " when tab completing in a command line complete longest common string
                           " then list alternatives
 
+" incremental search
+set incsearch
+
 " tabs are 4 spaces, and expand them
 set softtabstop=4
 set shiftwidth=4
