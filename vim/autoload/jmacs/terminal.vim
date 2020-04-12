@@ -3,7 +3,6 @@ let s:terminals = {}
 function! jmacs#terminal#toggle(dir) abort
     let this_term = get(s:terminals, a:dir, { 'win_id': v:null, 'buffer_id': v:null })
     if &buftype == 'terminal' || win_gotoid(this_term.win_id)
-        echom 'jump to existing'
         " toggle off the terminal
         hide
         set laststatus=2 showmode ruler
