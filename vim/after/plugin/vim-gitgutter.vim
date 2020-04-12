@@ -1,9 +1,9 @@
 " for vim-gitgutter
-highlight clear SignColumn
-highlight GitGutterAdd ctermfg=green guifg=darkgreen
-highlight GitGutterChange ctermfg=yellow guifg=darkyellow
-highlight GitGutterDelete ctermfg=red guifg=darkred
-highlight GitGutterChangeDelete ctermfg=yellow guifg=darkyellow
+" highlight clear SignColumn
+" highlight GitGutterAdd ctermfg=green guifg=darkgreen
+" highlight GitGutterChange ctermfg=yellow guifg=darkyellow
+" highlight GitGutterDelete ctermfg=red guifg=darkred
+" highlight GitGutterChangeDelete ctermfg=yellow guifg=darkyellow
 
 function! s:next_hunk(char)
   call gitgutter#hunk#next_hunk(1)
@@ -108,6 +108,27 @@ function! s:git_transient_state() abort
         \ 'desc' : 'commit',
         \ 'func' : '',
         \ 'cmd' : ':Git commit',
+        \ 'exit' : 1,
+        \ },
+        \ {
+        \ 'key' : 'f',
+        \ 'desc' : 'fetch',
+        \ 'func' : '',
+        \ 'cmd' : ':Git fetch',
+        \ 'exit' : 1,
+        \ },
+        \ {
+        \ 'key' : 'F',
+        \ 'desc' : 'pull',
+        \ 'func' : '',
+        \ 'cmd' : ':Git pull',
+        \ 'exit' : 1,
+        \ },
+        \ {
+        \ 'key' : 'p',
+        \ 'desc' : 'push',
+        \ 'func' : '',
+        \ 'cmd' : ':Git push',
         \ 'exit' : 1,
         \ },
         \ {
