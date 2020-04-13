@@ -13,35 +13,50 @@
 [profiles]
   [[default]]
     background_color = "#0f111a"
+    cursor_blink = False
     cursor_color = "#ffcc00"
     cursor_color_fg = False
+    cursor_shape = underline
     foreground_color = "#8f93a2"
     palette = "#2e3436:#ff5370:#c3e88d:#ffcb6b:#82aaff:#c792ea:#89ddff:#d3d7cf:#555753:#f07178:#c3e88d:#f78c6c:#729fcf:#bb80b3:#89ddff:#eeeeec"
     scrollback_lines = 50000
+    scrollbar_position = hidden
     show_titlebar = False
     use_system_font = False
   [[Material-Ocean]]
     background_color = "#0f111a"
+    cursor_blink = False
     cursor_color = "#ffcc00"
     cursor_color_fg = False
+    cursor_shape = underline
     foreground_color = "#8f93a2"
     palette = "#2e3436:#ff5370:#c3e88d:#ffcb6b:#82aaff:#c792ea:#89ddff:#d3d7cf:#555753:#f07178:#c3e88d:#f78c6c:#729fcf:#bb80b3:#89ddff:#eeeeec"
     scrollback_lines = 50000
+    scrollbar_position = hidden
     show_titlebar = False
     use_system_font = False
   [[solaried-dark]]
     background_color = "#002b36"
+    cursor_blink = False
     cursor_color = "#eee8d5"
     font = Monospace 15
+    cursor_color_fg = False
+    cursor_shape = underline
     foreground_color = "#eee8d5"
     palette = "#073642:#dc322f:#859900:#b58900:#268bd2:#d33682:#2aa198:#eee8d5:#586e75:#cb4b16:#586e75:#657b83:#839496:#6c71c4:#93a1a1:#fdf6e3"
     scrollback_lines = 50000
+    scrollbar_position = hidden
     show_titlebar = False
     use_system_font = False
   [[tmux]]
     background_color = "#fdf6e3"
+    cursor_blink = False
+    cursor_color = "#eee8d5"
+    cursor_color_fg = False
+    cursor_shape = underline
     foreground_color = "#657b83"
     palette = "#073642:#dc322f:#859900:#b58900:#268bd2:#d33682:#2aa198:#eee8d5:#002b36:#cb4b16:#586e75:#657b83:#839496:#6c71c4:#93a1a1:#fdf6e3"
     scrollback_lines = 50000
+    scrollbar_position = hidden
     show_titlebar = False
     use_system_font = False
