@@ -18,7 +18,7 @@ function! jmacs#terminal#toggle(dir) abort
         let this_term.win_id = win_getid()
         let s:terminals[a:dir] = this_term
         exec "resize" float2nr(&lines * 0.25)
-        setlocal laststatus=0 noshowmode noruler wfh
+        setlocal noshowmode noruler wfh
         setlocal nobuflisted
         echo ''
         startinsert!
