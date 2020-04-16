@@ -56,7 +56,7 @@ main = do
                         , ppUrgent = xmobarColor "#cb4b16" "" . xmobarStrip
                         , ppCurrent = xmobarColor "#859900" "" . xmobarStrip
                         }
-                    <+> fadeInactiveLogHook 0.9
+                    <+> fadeInactiveLogHook 0.8
         , normalBorderColor = "#002b36"
         , focusedBorderColor = "#657b83"
         , keys = \c -> myKeyBindings c `M.union` keys defaultConfig c
