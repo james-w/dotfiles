@@ -92,6 +92,7 @@ function! jmacs#projects#fzf_files(dir, opts)
   call map(files, 'strpart(v:val, len(a:dir)+1)')
   let opts.source = 'bash -c "echo -e \"' . join(files, '\n') . '\"; ag -l -g \"\""'
   let opts.dir = a:dir
+  let opts.options = opts.options . ' +s'
   call fzf#run(fzf#wrap('files', opts))
 endfunction!
 

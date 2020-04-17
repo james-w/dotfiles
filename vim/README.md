@@ -46,7 +46,7 @@ until you leave, or one of the actions ends the state.
 Ideas
 -----
 
-* Have a binding that shows top-level keys (e.g. y=yank) (&lt;leader>hk in spacemacs)
+* Have a binding that shows top-level keys (e.g. y=yank) (&lt;leader&rt;hk in spacemacs)
 * Use vim-which-key on other prefixes to show e.g. possible motions
   for a yank
   * [issue requesting this](https://github.com/liuchengxu/vim-which-key/issues/14)
@@ -54,7 +54,7 @@ Ideas
 * compilation
 * quicklist bindings
 * git conflict helper
-* filetype bindings (&lt;leader>m in spacemacs)
+* filetype bindings (&lt;leader&rt;m in spacemacs)
 * Fix transient states hiding on tab change
 * Fix last buffer (&lt;leader>&lt;tab> trying to show closed buffers)
   * [maybe this helps?](https://stackoverflow.com/questions/3706958/vim-navigating-to-previous-and-next-buffers-in-edit-history)
