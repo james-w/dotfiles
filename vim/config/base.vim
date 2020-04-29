@@ -39,5 +39,8 @@ augroup BgHighlight
     autocmd WinLeave * set nocul
 augroup END
 
+" Enable mouse integration
+set mouse+=a
+
 " Draw nicer chars between splits
 set fillchars +=vert:▏
