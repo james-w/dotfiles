@@ -19,5 +19,5 @@ export $(gnome-keyring-daemon --start --components=gpg,pkcs11,secrets,ssh)
 gnome-power-manager &
 xkbcomp -I$HOME/.xkb ~/.xkb/keymap/jamesw :0
 redshift &
-feh --no-fehbg --bg-fill ~/devel/dotfiles/xmonad/background.svg
+feh --no-fehbg --bg-fill ~/devel/dotfiles/xmonad/background.jpg
 exec xmonad
