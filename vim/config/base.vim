@@ -38,3 +38,6 @@ augroup BgHighlight
     autocmd WinEnter * set cul
     autocmd WinLeave * set nocul
 augroup END
+
+" Draw nicer chars between splits
+set fillchars +=vert:▏
