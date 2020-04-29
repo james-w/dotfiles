@@ -40,16 +40,24 @@ function! s:switch_branch_sink(lines)
   execute ':Git checkout ' branch
 endfunction
 
-function! s:fzf_branches(sink)
-  return fzf#run(fzf#wrap('branches', {'source': '(git branch -a | cut -c 3-)', 'sink*': a:sink, 'options': '+s +m --prompt="Branches>" --preview "git show --color=always {}"'}))
+function! s:fzf_branches(dir, sink)
+  return fzf#run(fzf#wrap('branches', {'source': '(git branch -a | cut -c 3-)', 'sink*': a:sink, 'dir': a:dir, 'options': '+s +m --prompt="Branches>" --preview "git show --color=always {1}"'}))
 endfunction
 
 function s:branch(char)
-  return s:fzf_branches(function('s:create_branch_sink'))
+  let dir = jmacs#projects#current_project()
+  if empty(dir)
+      dir = getcwd()
+  endif
+  return s:fzf_branches(dir, function('s:create_branch_sink'))
 endfunction
 
 function s:checkout(char)
-  return s:fzf_branches(function('s:switch_branch_sink'))
+  let dir = jmacs#projects#current_project()
+  if empty(dir)
+      dir = getcwd()
+  endif
+  return s:fzf_branches(dir, function('s:switch_branch_sink'))
 endfunction
 
 function! s:git_transient_state() abort
