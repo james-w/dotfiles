@@ -236,10 +236,6 @@ export KEYTIMEOUT=1
 # Activate extra completions
 autoload -U compinit && compinit
 
-# bare `cd` to a directory under here will work
-setopt auto_cd
-cdpath=($HOME/devel)
-
 # Don't share history between sessions
 setopt nosharehistory
 # Remove old entries if new one is a duplicate
