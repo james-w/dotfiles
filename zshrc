@@ -236,6 +236,19 @@ export KEYTIMEOUT=1
 # Activate extra completions
 autoload -U compinit && compinit
 
+# This speeds up pasting w/ autosuggest
+# https://github.com/zsh-users/zsh-autosuggestions/issues/238
+pasteinit() {
+  OLD_SELF_INSERT=${${(s.:.)widgets[self-insert]}[2,3]}
+  zle -N self-insert url-quote-magic # I wonder if you'd need `.url-quote-magic`?
+}
+
+pastefinish() {
+  zle -N self-insert $OLD_SELF_INSERT
+}
+zstyle :bracketed-paste-magic paste-init pasteinit
+zstyle :bracketed-paste-magic paste-finish pastefinish
+
 # Don't share history between sessions
 setopt nosharehistory
 # Remove old entries if new one is a duplicate
@@ -248,6 +261,7 @@ export FZF_DEFAULT_OPTS='--height 40% --reverse'
 function tardiff() {
     diff -u <(tar -v -tf $1) <(tar -v -tf $2)
 }
+
 
 export GOPATH=~/devel/gopath
 export PATH=$PATH:$GOPATH/bin
