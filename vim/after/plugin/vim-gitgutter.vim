@@ -41,7 +41,7 @@ function! s:switch_branch_sink(lines)
 endfunction
 
 function! s:fzf_branches(dir, sink)
-  return fzf#run(fzf#wrap('branches', {'source': '(git branch -a | cut -c 3-)', 'sink*': a:sink, 'dir': a:dir, 'options': '+s +m --prompt="Branches>" --preview "git show --color=always {1}"'}))
+  return fzf#run(fzf#wrap('branches', {'source': '(git branch -a | cut -c 3-)', 'sink*': a:sink, 'dir': a:dir, 'options': '+m --prompt="Branches>" --preview "git show --color=always {1}"'}))
 endfunction
 
 function s:branch(char)

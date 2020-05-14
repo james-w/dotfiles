@@ -61,7 +61,7 @@ endfunction
 
 function! s:list_layouts(char)
   let tabs = s:get_tabs()
-  return fzf#run(fzf#wrap('tabs', {'source': tabs, 'sink*': function('s:layouts_sink'), 'options': '+s +m --prompt="Tabs>"'}))
+  return fzf#run(fzf#wrap('tabs', {'source': tabs, 'sink*': function('s:layouts_sink'), 'options': '+m --prompt="Tabs>"'}))
 endfunction
 
 " moving between tabs hides the transient window, but it still operates

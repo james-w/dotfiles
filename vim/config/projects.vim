@@ -13,7 +13,7 @@ function! ProjectRecentFiles()
     call jmacs#util#error('Not in a project')
   else
     let files = jmacs#projects#recent_files(dir)
-    return fzf#run(fzf#wrap('recent', fzf#vim#with_preview({'source': files, 'options': '+s -m --prompt="Recent>"'})))
+    return fzf#run(fzf#wrap('recent', fzf#vim#with_preview({'source': files, 'options': '-m --prompt="Recent>"'})))
   endif
 endfunction
 
@@ -44,7 +44,7 @@ let s:preview_cmd = 'bash '.escape(s:bin_dir . 'project_preview.sh', '\')
 
 function! ListProjects()
   let projects = jmacs#projects#list_recent()
-  return fzf#run(fzf#wrap('projects', {'source': projects, 'sink*': function('s:projects_sink'), 'options': '+s --tiebreak=index +m --prompt="Projects>" --preview ' . fzf#shellescape(s:preview_cmd . ' {}')}))
+  return fzf#run(fzf#wrap('projects', {'source': projects, 'sink*': function('s:projects_sink'), 'options': '--tiebreak=index +m --prompt="Projects>" --preview ' . fzf#shellescape(s:preview_cmd . ' {}')}))
 endfunction
 
 call jmacs#bindings#register_call_binding('open recent project in layout', 'call ListProjects()', g:jmacs_project_group, 'l')

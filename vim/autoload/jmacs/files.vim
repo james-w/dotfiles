@@ -14,5 +14,5 @@ endfunction
 
 function! jmacs#files#new_file_in_dir(dir)
   let dirs = 'find . -path ./.git -prune -o -type d -print'
-  return fzf#run(fzf#wrap('dirs', {'source': dirs, 'sink*': function('s:create_file_sink'), 'dir': a:dir, 'options': '+s +m --prompt="Dirs>" --preview=''tree -C {}'''}))
+  return fzf#run(fzf#wrap('dirs', {'source': dirs, 'sink*': function('s:create_file_sink'), 'dir': a:dir, 'options': '+m --prompt="Dirs>" --preview=''tree -C {}'''}))
 endfunction
