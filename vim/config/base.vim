@@ -44,3 +44,7 @@ set mouse+=a
 
 " Draw nicer chars between splits
 set fillchars +=vert:▏
+
+" Increase the number of oldfiles so that
+" we can list more recent projects
+set viminfo='500
