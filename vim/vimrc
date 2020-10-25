@@ -1,3 +1,4 @@
 let mapleader="\<Space>"
+let localleader="\\"
 
 runtime! config/**/*.vim
