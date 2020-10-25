@@ -39,19 +39,7 @@ function! s:FindAncestor(path, pattern)
   endif
 
   if s:IsDirectory(a:pattern)
-    " If the directory we found (`match`) is part of the file's path
-    " it is the project root and we return it.
-    "
-    " Compare with trailing path separators to avoid false positives.
-    if stridx(fnamemodify(fd_dir, ':p'), fnamemodify(match, ':p')) == 0
-      return fnamemodify(match, ':p:h')
-
-    " Else the directory we found (`match`) is a subdirectory of the
-    " project root, so return match's parent.
-    else
-      return fnamemodify(match, ':p:h:h')
-    endif
-
+    return fnamemodify(match, ':p:h:h')
   else
     return fnamemodify(match, ':p:h')
   endif
