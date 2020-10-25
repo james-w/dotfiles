@@ -48,3 +48,6 @@ set fillchars +=vert:▏
 " Increase the number of oldfiles so that
 " we can list more recent projects
 set viminfo='500
+
+" Don't show -- INSERT -- in command line as it is in airline
+set noshowmode
