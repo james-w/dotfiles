@@ -51,7 +51,7 @@ call jmacs#bindings#register_call_binding('open recent project in layout', 'call
 
 function! FindProject()
   let base = get(g:, 'jmacs_projects_base_dir', $HOME)
-  let find = 'find ' . fzf#shellescape(base) . ' -type d'
+  let find = 'find ' . fzf#shellescape(base) . ' -type d -maxdepth 3'
   return fzf#run(fzf#wrap('dirs', {'source': find, 'sink*': function('s:projects_sink'), 'options': '+m --prompt="Dirs>" --preview ' . fzf#shellescape(s:preview_cmd . ' {}')}))
 endfunction
 
