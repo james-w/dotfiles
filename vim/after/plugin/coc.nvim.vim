@@ -41,6 +41,7 @@ endfunction
 call jmacs#bindings#register_binding_silent('show documentation', ':<C-u>call call(' . string(function('s:show_documentation')) . ', [])<CR>', g:jmacs_code_group, 'd')
 
 " Highlight the symbol and its references when holding the cursor.
+autocmd CursorHoldI * silent call CocActionAsync('highlight')
 autocmd CursorHold * silent call CocActionAsync('highlight')
 
 function! ShowDocIfNoDiagnostic(timer_id)
