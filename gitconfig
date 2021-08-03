@@ -21,10 +21,11 @@
 	ci = commit -v
 	find-merge = "!sh -c 'commit=$0 && branch=${1:-HEAD} && (git rev-list $commit..$branch --ancestry-path --merges | cat -n; git rev-list $commit..$branch --first-parent | cat -n) | sort -k2 | uniq -f1 -d | sort -n | tail -1 | cut -f2'"
 	show-merge = "!sh -c 'merge=$(git find-merge $0 $1) && [ -n \"$merge\" ] && git show $merge'"
-	merged = "!sh -c 'git branch --merged ${1:-master} | grep -v -e \"\\<master\\>\"'"
+	merged = "!sh -c 'git branch --merged ${1:-$(git main-branch)} | grep -v -e \"\\<$(git main-branch)\\>\"'"
 	clean-merged = "!sh -c 'git merged | grep -v \"*\" | xargs -n 1 -r git branch -d'"
-	clean-slate = "!sh -c 'git checkout master && git pull && git clean-merged && git branch && git stash list && git status'"
-    ff = "!sh -c 'git merge --ff origin/$(git rev-parse --abbrev-ref HEAD)'"
+	clean-slate = "!sh -c 'git checkout $(git main-branch) && git pull && git clean-merged && git branch && git stash list && git status'"
+	ff = "!sh -c 'git merge --ff origin/$(git rev-parse --abbrev-ref HEAD)'"
+	main-branch = "!sh -c 'git symbolic-ref refs/remotes/origin/HEAD | cut -d/ -f4'"
 [github]
 	user = james-w
 [diff]

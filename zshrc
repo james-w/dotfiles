@@ -256,12 +256,15 @@ setopt HIST_IGNORE_ALL_DUPS
 
 export EDITOR=vim
 
-export FZF_DEFAULT_OPTS='--height 40% --reverse'
+export FZF_DEFAULT_OPTS='--height 40% --reverse
+    --color=fg:#8f93a2,bg:#0f111a,hl:#a3be8c
+    --color=fg+:#8f93a2,bg+:#3b4252,hl+:#a3be8c
+    --color=info:#b161ca,prompt:#a3be8c,pointer:#81a1c1
+    --color=marker:#88c0d0,spinner:#e5e9f0,header:#e5e9f0'
 
 function tardiff() {
     diff -u <(tar -v -tf $1) <(tar -v -tf $2)
 }
-
 
 export GOPATH=~/devel/gopath
 export PATH=$PATH:$GOPATH/bin
